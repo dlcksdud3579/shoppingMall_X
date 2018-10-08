@@ -31,3 +31,6 @@
 *.out
 *.app
 TupleGenerator.VC.VC.opendb
+*.idb
+*.tlog
+*.lastbuildstate
