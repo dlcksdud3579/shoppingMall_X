@@ -22,6 +22,12 @@ string Tuple::toString()
 	ostr << " );" << endl;
 	return ostr.str();
 }
+Data* Tuple::getDate(int _index)
+{
+	if(val.size() > _index)
+		return  this->val.at(_index);
+	return NULL;
+}
 
 Tuple::~Tuple()
 {

@@ -17,7 +17,12 @@ string List::toString()
 	ostr << endl;
 	return ostr.str();
 }
-
+Tuple* List::getTuple(int _index)
+{
+	if(val.size() >_index)
+		return val.at(_index);
+	return NULL;
+}
 List::~List()
 {
 }

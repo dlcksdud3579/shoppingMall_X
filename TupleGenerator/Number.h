@@ -8,6 +8,7 @@ private:
 public:
 	virtual string toString();
 	Number(int _var);
+	int getVal() { return val; }
 	~Number();
 };
 
