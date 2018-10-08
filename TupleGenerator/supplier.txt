@@ -1,0 +1,8 @@
+공급업체명	분류	소재지	대표자	전화번호	이메일
+케이투	의류,레져	인천	김일두	032-0158-1111	oneheadk2@knu.ac.kr
+Blackcow	의류,레져	안양	흑운장	031-2549-7777	blackcowMan@knu.ac.kr
+LGT화학	안전, 화학	대구	김기림	053-156-888	rising@knu.ac.kr
+영창화학	안전, 화학	서울	김영창	02-568-1111	brig@knu.ac.kr
+스마이토	생활및가전	경기	강타	031-5498-7777	smite@knu.ac.kr
+엑셀	생활및가전	부산	최제일	051-1597-7777	excell@knu.ac.kr
+백마	전기, 철제	대구	백종언	053-7894-7777	unicon@knu.ac.kr
