@@ -74,7 +74,7 @@ List* genItem()
 	getline(f, temp);
 	while (!f.eof())
 	{
-		Tuple *item = new Tuple("ITEM");
+		Tuple *item = new Tuple("Item");
 		getline(f,temp);
 		splitTemp = StringSplit(temp, "\t");
 		splitTemp2 = StringSplit(splitTemp[9], " ");
@@ -167,7 +167,7 @@ List* genBrand()
 	getline(f, temp);
 	while (!f.eof())
 	{
-		Tuple *brand = new Tuple("BRAND");
+		Tuple *brand = new Tuple("Brand");
 		getline(f, temp);
 		splitTemp = StringSplit(temp, "\t");
 		
@@ -209,7 +209,8 @@ List* genSupplier()
 	getline(f, temp);
 	while (!f.eof())
 	{
-		Tuple *brand = new Tuple("SUPPLIER");
+		//Tuple *brand = new Tuple("SUPPLIER");
+		Tuple *brand = new Tuple("Supplier");
 		getline(f, temp);
 		splitTemp = StringSplit(temp, "\t");
 
@@ -247,7 +248,7 @@ List* genCategory()
 	getline(f, temp);
 	while (!f.eof())
 	{
-		Tuple *brand = new Tuple("CATEGORY");
+		Tuple *brand = new Tuple("Category");
 		getline(f, temp);
 		splitTemp = StringSplit(temp, "\t");
 		
@@ -279,7 +280,7 @@ List* genShoppingBasket()
 	 
 	for (int i = 0; i < 60; i++)
 	{
-		Tuple* tuple = new Tuple("SHOPPINGBASKET");
+		Tuple* tuple = new Tuple("ShoppingBasket");
 		Var* ShoppingBasketId = new Var(randString(rand()%5+2)+to_string(rNum +i*7));
 		tuple->insert(ShoppingBasketId);
 		
@@ -300,7 +301,7 @@ List* genCustomer()
 	List* customerList = new List();
 	for (int i = 0; i < 60; i++)
 	{
-		Tuple* tuple = new Tuple("CUSTOMER");
+		Tuple* tuple = new Tuple("Customer");
 		
 		Var *Id = new Var(randString(rand()%15+ 3)+to_string(rand() % 15 + 3)); //: Text 타입.고객이 로그인할 때 사용하는 아이디.Key attribute
 		tuple->insert(Id);
@@ -354,7 +355,7 @@ List* genItemOrder()
 	List* ItemOrderList = new List();
 	for (int i = 0; i < 200; i++)
 	{
-		Tuple* tuple = new Tuple("ITEMORDER");
+		Tuple* tuple = new Tuple("ItemOrder");
 
 
 
@@ -415,7 +416,7 @@ List* genLocation()
 
 	for (int i = 0; i < 60; i++)
 	{
-		Tuple* tuple = new Tuple("SHIPPINGLOCATION");
+		Tuple* tuple = new Tuple("ShippingLocation");
 		
 		
 		Var	* id = new Var("SL"+to_string(rnadNum+cnt++));// 
@@ -470,7 +471,7 @@ List* genShiPper()
 
 	while (!f.eof())
 	{
-		Tuple *shipper = new Tuple("SHIPPER");
+		Tuple *shipper = new Tuple("ShiPper");
 		getline(f, temp);
 		splitTemp = StringSplit(temp, "\t");
 
@@ -500,7 +501,7 @@ List* genBasketContains()
 	{
 
 
-		Tuple * tuple = new Tuple("BASKETCONTAINS");
+		Tuple * tuple = new Tuple("BasketContains");
 
 		Var * CustomerId = new Var(dynamic_cast<Var*>(lList[ShoppingBasket]->getTuple(rand()%lList[ShoppingBasket]->size())->getDate(2))->getVal());// VARCHAR(30)
 		tuple->insert(CustomerId);
@@ -523,7 +524,7 @@ List* genOrderContains()
 
 	for (int i = 0; i < lList[ItemOrder]->size(); i++)
 	{
-		Tuple * tuple = new Tuple("ORDERCONTAINS");
+		Tuple * tuple = new Tuple("OrderContains");
 		Var *ItemCode = new Var(dynamic_cast<Var*>( lList[Item]->getTuple(rand()% lList[Item]->size())->getDate(0))->getVal()); //VARCHAR(20) NOT NULL,
 		tuple->insert(ItemCode);
 		Var * OrderId = new Var(dynamic_cast<Var*>(lList[ItemOrder]->getTuple(i)->getDate(0))->getVal()); //VARCHAR(30),
@@ -536,7 +537,7 @@ List* genOrderContains()
 	}
 	for (int i = 0; i < 200; i++)
 	{
-		Tuple * tuple = new Tuple("ORDERCONTAINS");
+		Tuple * tuple = new Tuple("OrderContains");
 		Var *ItemCode = new Var(dynamic_cast<Var*>(lList[Item]->getTuple(rand() % lList[Item]->size())->getDate(0))->getVal()); //VARCHAR(20) NOT NULL,
 		tuple->insert(ItemCode);
 
@@ -560,7 +561,7 @@ List* genOrderShipTo()
 	List *OrderShipToList = new List();
 	for (int i = 0; i < lList[ItemOrder]->size(); i++)
 	{
-		Tuple * tuple = new Tuple("ORDERSHIPTO");
+		Tuple * tuple = new Tuple("OrderShipTo");
 
 		Var* CustomerId = new Var(dynamic_cast<Var*>(lList[Location]->getTuple(rand()%lList[Location]->size())->getDate(4))->getVal());  //VARCHAR(30),
 		tuple->insert(CustomerId);
