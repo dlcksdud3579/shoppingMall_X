@@ -6,7 +6,7 @@
 string Date::toString()
 {
 	std::ostringstream ostr;
-	ostr << "TO_DATE(\'" << year << "-" << mont << "-" << day << "\', \'" << "yyyy-mm-dd\')";
+	ostr << "\""<< year << "-" << mont << "-" << day<<"\"";
 	return ostr.str();
 }
 Date::Date(int year, int mont, int day)

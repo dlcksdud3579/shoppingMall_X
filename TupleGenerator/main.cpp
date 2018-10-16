@@ -28,7 +28,7 @@ List* genOrderShipTo();
 string* StringSplit(string strTarget, string strTok);
 string randString(int number);
 List** lList;
-enum ListName { Item, Brand, Suppler, Category, ShoppingBasket,Customer, Shipper, Location, ItemOrder, BasketContains, OrderContains, OrderShipTo};
+enum ListName {  Suppler, Brand,  Category, Customer, Shipper,Item, ShoppingBasket, Location, ItemOrder, BasketContains, OrderContains, OrderShipTo};
 
 int rNum;
 int main()
@@ -39,19 +39,19 @@ int main()
 	srand(time(0));
 
 	rNum = rand() + 1000000;
-	lList[2] = genSupplier();//2
-	lList[5] = genCustomer();//5
-	lList[1] = genBrand();//1
-	lList[3] =  genCategory();//3
-	lList[0] = genItem(); // 0
-	lList[4] = genShoppingBasket();//4
-	lList[6] = genShiPper(); //6
-	lList[7] =  genLocation();//7
-	lList[9] =  genBasketContains();
+	lList[Suppler] = genSupplier();//2
+	lList[Customer] = genCustomer();//5
+	lList[Brand] = genBrand();//1
+	lList[Category] =  genCategory();//3
+	lList[Item] = genItem(); // 0
+	lList[ShoppingBasket] = genShoppingBasket();//4
+	lList[Shipper] = genShiPper(); //6
+	lList[Location] =  genLocation();//7
+	lList[BasketContains] =  genBasketContains();
 	
-	lList[8] = genItemOrder();//8
-	lList[10] = genOrderContains();
-	lList[11] = genOrderShipTo();
+	lList[ItemOrder] = genItemOrder();//8
+	lList[OrderContains] = genOrderContains();
+	lList[OrderShipTo] = genOrderShipTo();
 	ofstream F = ofstream("INSERT.sql");
 	for (int i = 0; i < MAXLIST; i++)
 	{
@@ -335,13 +335,13 @@ List* genCustomer()
 		switch (rand() % 3)
 		{
 		case 0:
-			Type = new Var("도매업자");
+			Type = new Var("Wholesaler");
 			break;
 		case 1:
-			Type = new Var("소매업자");
+			Type = new Var("Retailer");
 			break;
 		default:
-			Type = new Var("기타");
+			Type = new Var("Nomal");
 			break;
 		}
 		tuple->insert(Type);
@@ -373,16 +373,16 @@ List* genItemOrder()
 		switch (rand() % 4)
 		{
 		case 0:
-			OrderStatus = new Var("결제대기");
+			OrderStatus = new Var("Waiting for payment");
 			break;
 		case 1:
-			OrderStatus = new Var("결제 확인");
+			OrderStatus = new Var("Confirm payment");
 			break;
 		case 2:
-			OrderStatus = new Var("배송중");
+			OrderStatus = new Var("shipping");
 			break;
 		default:
-			OrderStatus = new Var("수령 완료");
+			OrderStatus = new Var("recived");
 			break;
 		}
 		tuple->insert(OrderStatus);
@@ -434,15 +434,15 @@ List* genLocation()
 		switch (rand() % 3)
 		{
 		case 0:
-			MainCategory = new Var("수도권 및 경기도");
+			MainCategory = new Var("Seoul and Gyeonggi");
 			ShipperName = new Var(dynamic_cast<Var*>(lList[Shipper]->getTuple(0)->getDate(0))->getVal());
 			break;
 		case 1:
-			MainCategory = new Var("지방");
+			MainCategory = new Var("Provinces");
 			ShipperName = new Var(dynamic_cast<Var*>(lList[Shipper]->getTuple(1)->getDate(0))->getVal());
 			break;
 		default:
-			MainCategory = new Var("도서산간지역");
+			MainCategory = new Var("Mountains and Islands");
 			ShipperName = new Var(dynamic_cast<Var*>(lList[Shipper]->getTuple(2)->getDate(0))->getVal());
 			break;
 		}

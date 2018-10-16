@@ -8,7 +8,7 @@ Var::Var(string _var)
 }
 string Var::toString() 
 { 
-	return "\'" + var + "\'";
+	return "\"" + var + "\"";
 }
 
 Var::~Var()
