@@ -17,7 +17,7 @@ List* genShoppingBasket();
 List* genCustomer();
 List* genItemOrder();
 List* genLocation();
-List* genShiPper();
+List* genShipper();
 
 List* genBasketContains();
 List* genOrderContains();
@@ -33,7 +33,7 @@ enum ListName {  Suppler, Brand,  Category, Customer, Shipper,Item, ShoppingBask
 int rNum;
 int main()
 {
-	const int MAXLIST =12;
+	const int MAXLIST =11;
 	lList = new   List*[MAXLIST];
 	int i = 0;
 	srand(time(0));
@@ -45,13 +45,13 @@ int main()
 	lList[Category] =  genCategory();//3
 	lList[Item] = genItem(); // 0
 	lList[ShoppingBasket] = genShoppingBasket();//4
-	lList[Shipper] = genShiPper(); //6
+	lList[Shipper] = genShipper(); //6
 	lList[Location] =  genLocation();//7
 	lList[BasketContains] =  genBasketContains();
 	
 	lList[ItemOrder] = genItemOrder();//8
 	lList[OrderContains] = genOrderContains();
-	lList[OrderShipTo] = genOrderShipTo();
+	//lList[OrderShipTo] = genOrderShipTo();
 	ofstream F = ofstream("INSERT.sql");
 	for (int i = 0; i < MAXLIST; i++)
 	{
@@ -108,7 +108,8 @@ List* genItem()
 	
 		for (int i = 0; i < lList[Brand]->size(); i++)
 		{
-			if (splitTemp[5] == dynamic_cast<Var*>(lList[Brand]->getTuple(i)->getDate(1))->getVal())
+			string temp = dynamic_cast<Var*>(lList[Brand]->getTuple(i)->getDate(1))->getVal();
+			if (splitTemp[5] == temp)
 			{
 				Var * BrandId = new Var(dynamic_cast<Var*>(lList[Brand]->getTuple(i)->getDate(0))->getVal()); //VARCHAR(5),
 				item->insert(BrandId);
@@ -362,7 +363,7 @@ List* genItemOrder()
 		Var *OrderId = new Var("IO-"+randString(rand()%5)+to_string(1000+ rNum +i*17));// : Integer 타입.주문번호.Key attribute.
 		tuple->insert(OrderId);
 
-		Null * SumPrice =new Null();// : Integer 타입.주문에 대한 총 결제금액.Item 과의 Contains Relation의 purchasedPrice들과 배송업체의 배송비용의 합으로 결정됨.
+		Number * SumPrice =new Number(0);// : Integer 타입.주문에 대한 총 결제금액.Item 과의 Contains Relation의 purchasedPrice들과 배송업체의 배송비용의 합으로 결정됨.
 		tuple->insert(SumPrice);
 
 		Date * OrderDate  = new Date(2000+ rand()%18,rand() % 12+1, rand() % 31+1);// : DateTime 타입.주문 일자
@@ -394,8 +395,12 @@ List* genItemOrder()
 		{
 			if (PurchasedCustomerId->getVal() == dynamic_cast<Var*>(lList[Location]->getTuple(i)->getDate(5))->getVal())
 			{
+
+				Var * LocationId = new Var(dynamic_cast<Var*>(lList[Location]->getTuple(i)->getDate(0))->getVal()); //VARCHAR(15)
+				tuple->insert(LocationId);
 				Var * ShipperName = new Var(dynamic_cast<Var*>(lList[Location]->getTuple(i)->getDate(4))->getVal()); //VARCHAR(15)
 				tuple->insert(ShipperName);
+			
 			}
 		}
 
@@ -458,7 +463,7 @@ List* genLocation()
 	}
 	return locationList;
 }
-List* genShiPper()
+List* genShipper()
 {
 	List* shipperList = new List();
 	ifstream f = ifstream("shipper.txt");
@@ -471,7 +476,7 @@ List* genShiPper()
 
 	while (!f.eof())
 	{
-		Tuple *shipper = new Tuple("ShiPper");
+		Tuple *shipper = new Tuple("Shipper");
 		getline(f, temp);
 		splitTemp = StringSplit(temp, "\t");
 
