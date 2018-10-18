@@ -1,40 +1,40 @@
 Brand name (Key)	Sales Item Code	Brand sales volume	Supplier (tentative)	Shipper (tentative)
-K2 safety shoes	W849-9635, W847-4821	0		
-K2 Korea	W864-5313, W846-5753, W833-0439, W864-8541, W843-9961, W864-5456, W864-5304	0		
-SK Rose Bar	W879-0303, W879-3841, W879-0011	0		
-SMATO LED lighting	W113-7921, W113-7949	0		
-SMATO Lantern	W102-4584	0		
-SMATO Safety	W863-0250, W863-0278	0		
-SMATO work lights	W105-3373	0		
-SMATO Boots	W113-8133, W888-1818	0		
-Navachem	W818-2911, W818-0542	0		
-Daemyung Industry	C177-0805	0		
-Instead,	W864-4697, W850-0029	0		
-Daeheung Metal	C166-0915	0		
-Lucky Industry	W819-0026, W819-0035	0		
-Lucky silicon	W868-0559	0		
-Leisure Time	W848-9197	0		
-Leakap	W845-0900	0		
-White horse	C270-2661	0		
-Vexcel	C142-0034, C142-0016	0		
-Black Yak	W843-8704	0		
-Bleach Battery	C401-0111, C401-0148	0		
-Big Toss	W846-2808	0		
-Samsung	W875-7238	0		
-Super Rube	W828-0019, W828-0064	0		
-Scarlet scissors	C100-4119, C100-4128	0		
-The name of Sumata	C177-1406, C177-1424	0		
-Scarlet Foundation scissors	C101-5601, C101-5610	0		
-Sumato paper cup	C102-3071	0		
-The Sumo Hammer	C100-2111, C100-1811	0		
-Starlight	W879-4017	0		
-Shinetsu	W868-0699, W868-0680, W868-0945	0		
-Child	W864-9595, W864-9993, W864-8897	0		
-Enwai Korea	W144-4371, W144-3123	0		
-brig	C100-2102, C131-0092	0		
-renewal	W820-0475, W820-0022	0		
-Changshin	C171-5516, C171-5589, C171-6065	0		
-Korea Electric Lighting	W140-1862	0		
-Fine Well	W899-2442, W850-4788	0		
-Hanshin hammer	C132-2848	0		
-Shovel	C132-1061, C132-1070	0		
+K2 safety shoes	W849-9635, W847-4821	0	Kite	
+K2 Korea	W864-5313, W846-5753, W833-0439, W864-8541, W843-9961, W864-5456, W864-5304	0	Kite	
+SK Rose Bar	W879-0303, W879-3841, W879-0011	0	White horse	
+SMATO LED lighting	W113-7921, W113-7949	0	Smite	
+SMATO Lantern	W102-4584	0	Smite	
+SMATO Safety	W863-0250, W863-0278	0	Blackcow	
+SMATO work lights	W105-3373	0	Smite	
+SMATO Boots	W113-8133, W888-1818	0	Blackcow	
+Navachem	W818-2911, W818-0542	0	White horse	
+Daemyung Industry	C177-0805	0	White horse	
+Instead,	W864-4697, W850-0029	0	Excel	
+Daeheung Metal	C166-0915	0	LGT Chemical	
+Lucky Industry	W819-0026, W819-0035	0	LGT Chemical	
+Lucky silicon	W868-0559	0	LGT Chemical	
+Leisure Time	W848-9197	0	Kite	
+Leakap	W845-0900	0	Blackcow	
+White horse	C270-2661	0	White horse	
+Vexcel	C142-0034, C142-0016	0	White horse	
+Black Yak	W843-8704	0	Blackcow	
+Bleach Battery	C401-0111, C401-0148	0	White horse	
+Big Toss	W846-2808	0	Young Chang Chemical	
+Samsung	W875-7238	0	White horse	
+Super Rube	W828-0019, W828-0064	0	Excel	
+Scarlet scissors	C100-4119, C100-4128	0	Excel	
+The name of Sumata	C177-1406, C177-1424	0	Excel	
+Scarlet Foundation scissors	C101-5601, C101-5610	0	Excel	
+Sumato paper cup	C102-3071	0	Smite	
+The Sumo Hammer	C100-2111, C100-1811	0	Smite	
+Starlight	W879-4017	0	Young Chang Chemical	
+Shinetsu	W868-0699, W868-0680, W868-0945	0	LGT Chemical	
+Child	W864-9595, W864-9993, W864-8897	0	Blackcow	
+Enwai Korea	W144-4371, W144-3123	0	Kite	
+brig	C100-2102, C131-0092	0	Young Chang Chemical	
+renewal	W820-0475, W820-0022	0	LGT Chemical	
+Changshin	C171-5516, C171-5589, C171-6065	0	Young Chang Chemical	
+Korea Electric Lighting	W140-1862	0	Young Chang Chemical	
+Fine Well	W899-2442, W850-4788	0	Kite	
+Hanshin hammer	C132-2848	0	Excel	
+Shovel	C132-1061, C132-1070	0	Excel	
