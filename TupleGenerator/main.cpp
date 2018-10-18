@@ -288,7 +288,7 @@ List* genShoppingBasket()
 		Number *SumPrice = new Number(0);
 		tuple->insert(SumPrice);
 
-		Var * CustomerId = new Var(dynamic_cast<Var*>(lList[Customer]->getTuple(rand() % 60)->getDate(0))->getVal()); //VARCHAR(30),
+		Var * CustomerId = new Var(dynamic_cast<Var*>(lList[Customer]->getTuple(i)->getDate(0))->getVal()); //VARCHAR(30),
 		tuple->insert(CustomerId);
 
 		ShoppingBasketList->insert(tuple);

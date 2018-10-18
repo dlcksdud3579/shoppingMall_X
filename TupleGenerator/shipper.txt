@@ -1,4 +1,4 @@
-배송업체이름	배송지역	배송시간	배송비용	물건크기제한
-머한통운	수도권 및 경기도	1일	2000	1M
-gate box	지방	2일	3000	무관
-yellow coif	도서산간지역	7일	5000	1M
+Shipper name	Shipping area	Delivery time	Shipping Cost	Item size limit
+Mustang Express	Metropolitan area and Gyeonggi	1 day	2000	1M
+gate box	Fat	2 days	3000	irrelevant
+yellow coif	Search	7 days	5000	1M

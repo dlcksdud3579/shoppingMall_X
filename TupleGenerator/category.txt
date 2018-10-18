@@ -1,19 +1,19 @@
-대분류(Key)	중분류(Key)	소분류(Key)	카테고리상품	카테고리판매량
-산업용품	조명	램프,LED램프	W879-0303, W113-7921, W113-7949, W879-0011	0
-산업용품	조명	작업등	W102-4584, W105-3373, W875-7238, W140-1862	0
-산업용품	조명	투광기	W879-3841, W879-4017, W144-4371, W144-3123	0
-산업용품	화학·윤활제품	건축용실란트	W868-0559, W868-0699, W868-0680, W868-0945	0
-산업용품	화학·윤활제품	구리스	W818-2911, W818-0542, W828-0019, W828-0064	0
-산업용품	화학·윤활제품	방청제/코팅제	W819-0026, W819-0035, W820-0475, W820-0022	0
-안전용품	레져용품	가방	W864-5313, W848-9197, W843-8704 , W864-9595	0
-안전용품	레져용품	워킹화	W846-5753, W833-0439, W864-8541 , W864-9993	0
-안전용품	레져용품	캠핑용품	W843-9961, W864-5456, W864-5304, W864-8897	0
-안전용품	안전화	방한화	W849-9635, W864-4697, W899-2442, W850-4788	0
-안전용품	안전화	안전화액세서리	W847-4821, W863-0250, W863-0278, W845-0900 	0
-안전용품	안전화	장화	W113-8133, W888-1818, W850-0029, W846-2808	0
-철물·원예·사무용품	생활,청소용품	건전지	C142-0034, C142-0016, C401-0111, C401-0148	0
-철물·원예·사무용품	생활,청소용품	과도,식도,주방가위	C100-4119, C100-4128, C101-5601, C101-5610	0
-철물·원예·사무용품	생활,청소용품	생활용품	C102-3071, C171-5516, C171-5589, C171-6065	0
-철물·원예·사무용품	철물	낫,곡괭이,삽	C270-2661, C132-2848, C132-1061, C132-1070	0
-철물·원예·사무용품	철물	도어록,경첩,도어클로저	C177-0805, C166-0915, C177-1406, C177-1424	0
-철물·원예·사무용품	철물	망치,빠루	C100-2111, C100-1811, C100-2102, C131-0092	0
+Major Category	In addition,	Small classification (Key)	Category Products	Category sales volume
+Industrial Supplies	light	Lamp, LED lamp	W879-0303, W113-7921, W113-7949, W879-0011	0
+Industrial Supplies	light	Work lights	W102-4584, W105-3373, W875-7238, W140-1862	0
+Industrial Supplies	light	Emitter	W879-3841, W879-4017, W144-4371, W144-3123	0
+Industrial Supplies	Chemicals & Lubricants	Building sealant	W868-0559, W868-0699, W868-0680, W868-0945	0
+Industrial Supplies	Chemicals & Lubricants	Grease	W818-2911, W818-0542, W828-0019, W828-0064	0
+Industrial Supplies	Chemicals & Lubricants	Anti-corrosion agent / coating agent	W819-0026, W819-0035, W820-0475, W820-0022	0
+Safety goods	Leisure goods	bag	W864-5313, W848-9197, W843-8704, W864-9595	0
+Safety goods	Leisure goods	Walking	W846-5753, W833-0439, W864-8541, W864-9993	0
+Safety goods	Leisure goods	Camping supplies	W843-9961, W864-5456, W864-5304, W864-8897	0
+Safety goods	Safety	Winterization	W849-9635, W864-4697, W899-2442, W850-4788	0
+Safety goods	Safety	Safety accessories	W847-4821, W863-0250, W863-0278, W845-0900	0
+Safety goods	Safety	Rainboots	W113-8133, W888-1818, W850-0029, W846-2808	0
+Hardware, gardening, office supplies	Life, cleaning supplies	battery	C142-0034, C142-0016, C401-0111, C401-0148	0
+Hardware, gardening, office supplies	Life, cleaning supplies	Transient, esophagus, kitchen scissors	C100-4119, C100-4128, C101-5601, C101-5610	0
+Hardware, gardening, office supplies	Life, cleaning supplies	Household goods	C102-3071, C171-5516, C171-5589, C171-6065	0
+Hardware, gardening, office supplies	Hardware	Sickle, pickaxe, shovel	C270-2661, C132-2848, C132-1061, C132-1070	0
+Hardware, gardening, office supplies	Hardware	Door locks, hinges, door closure	C177-0805, C166-0915, C177-1406, C177-1424	0
+Hardware, gardening, office supplies	Hardware	Hammer, Paru	C100-2111, C100-1811, C100-2102, C131-0092	0
