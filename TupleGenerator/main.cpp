@@ -366,7 +366,7 @@ List* genItemOrder()
 		Number * SumPrice =new Number(0);// : Integer 타입.주문에 대한 총 결제금액.Item 과의 Contains Relation의 purchasedPrice들과 배송업체의 배송비용의 합으로 결정됨.
 		tuple->insert(SumPrice);
 
-		Date * OrderDate  = new Date(2000+ rand()%18,rand() % 12+1, rand() % 31+1);// : DateTime 타입.주문 일자
+		Date * OrderDate  = new Date(2000+ rand()%18,rand() % 12+1, rand() % 28+1);// : DateTime 타입.주문 일자
 		tuple->insert(OrderDate);
 
 
@@ -508,9 +508,11 @@ List* genBasketContains()
 
 		Tuple * tuple = new Tuple("BasketContains");
 
-		Var * CustomerId = new Var(dynamic_cast<Var*>(lList[ShoppingBasket]->getTuple(rand()%lList[ShoppingBasket]->size())->getDate(2))->getVal());// VARCHAR(30)
+		Tuple * basketMaster = lList[ShoppingBasket]->getTuple(rand()%lList[ShoppingBasket]->size());
+
+		Var * CustomerId = new Var(dynamic_cast<Var*>(basketMaster->getDate(2))->getVal());// VARCHAR(30)
 		tuple->insert(CustomerId);
-		Var * ShoppingBasketId = new Var(dynamic_cast<Var*>(lList[ShoppingBasket]->getTuple(rand() % lList[ShoppingBasket]->size())->getDate(0))->getVal());// VARCHAR(15) NOT NULL
+		Var * ShoppingBasketId = new Var(dynamic_cast<Var*>(basketMaster->getDate(0))->getVal());// VARCHAR(15) NOT NULL
 		tuple->insert(ShoppingBasketId);
 		Var * ItemCode = new Var(dynamic_cast<Var*>(lList[Item]->getTuple(rand() % lList[Item]->size())->getDate(0))->getVal()); // VARCHAR(20) NOT NULL
 		tuple->insert(ItemCode);

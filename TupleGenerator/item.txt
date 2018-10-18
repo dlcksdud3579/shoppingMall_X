@@ -16,9 +16,9 @@ Safety goods	Safety	Winterization	Fashion Boots	265 brown / male	Fine Well	16200
 Safety goods	Safety	Winterization	Winterization	K2-51 (260) Black	K2 safety shoes	84000	W849-9635	65	1 / joe	0
 Safety goods	Safety	Winterization	Winter boots	# 81 (250) Black / Male - Peninsula Type	Fine Well	14400	W850-4788	35	1 / joe	0
 Safety goods	Safety	Safety accessories	Safety fire	Brown	K2 safety shoes	610	W847-4821	41	50 / joe	0
-Safety goods	Safety	Safety accessories	Insole for safety	265	Leakap	1520	W845-0900	48	10 /Article	0
-Safety goods	Safety	Safety accessories	Air insole	260	SMATO Safety	1390	W863-0250	32	10 /Article	0
-Safety goods	Safety	Safety accessories	Air insole	270	SMATO Safety	1390	W863-0278	45	10 /Article	0
+Safety goods	Safety	Safety accessories	Insole for safety	265	Leakap	1520	W845-0900	48	10 / Article	0
+Safety goods	Safety	Safety accessories	Air insole	260	SMATO Safety	1390	W863-0250	32	10 / Article	0
+Safety goods	Safety	Safety accessories	Air insole	270	SMATO Safety	1390	W863-0278	45	10 / Article	0
 Safety goods	Safety	Rainboots	Fashion boots	SRB-01 (270)	SMATO Boots	7420	W113-8133	8	1 / joe	0
 Safety goods	Safety	Rainboots	Fashion boots	Shinto (General Type) 270	SMATO Boots	10700	W888-1818	6	1 / joe	0
 Safety goods	Safety	Rainboots	Yodo Stable Boots	270	Instead,	32200	W850-0029	4	1 / joe	0
