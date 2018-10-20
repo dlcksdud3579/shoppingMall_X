@@ -28,12 +28,12 @@ List* genOrderShipTo();
 string* StringSplit(string strTarget, string strTok);
 string randString(int number);
 List** lList;
-enum ListName {  Suppler, Brand,  Category, Customer, Shipper,Item, ShoppingBasket, Location, ItemOrder, BasketContains, OrderContains, OrderShipTo};
+enum ListName { Suppler, Brand, Category, Customer, Shipper, Item, ShoppingBasket, Location, ItemOrder, BasketContains, OrderContains, OrderShipTo };
 
 int rNum;
 int main()
 {
-	const int MAXLIST =11;
+	const int MAXLIST = 11;
 	lList = new   List*[MAXLIST];
 	int i = 0;
 	srand(time(0));
@@ -42,13 +42,13 @@ int main()
 	lList[Suppler] = genSupplier();//2
 	lList[Customer] = genCustomer();//5
 	lList[Brand] = genBrand();//1
-	lList[Category] =  genCategory();//3
+	lList[Category] = genCategory();//3
 	lList[Item] = genItem(); // 0
 	lList[ShoppingBasket] = genShoppingBasket();//4
 	lList[Shipper] = genShipper(); //6
-	lList[Location] =  genLocation();//7
-	lList[BasketContains] =  genBasketContains();
-	
+	lList[Location] = genLocation();//7
+	lList[BasketContains] = genBasketContains();
+
 	lList[ItemOrder] = genItemOrder();//8
 	lList[OrderContains] = genOrderContains();
 	//lList[OrderShipTo] = genOrderShipTo();
@@ -66,16 +66,16 @@ List* genItem()
 {
 	ifstream f = ifstream("item.txt");
 	List ItemList;
-	string temp;	
+	string temp;
 	List* itemList = new List();
-	
+
 	string *splitTemp;
 	string *splitTemp2;
 	getline(f, temp);
 	while (!f.eof())
 	{
 		Tuple *item = new Tuple("Item");
-		getline(f,temp);
+		getline(f, temp);
 		splitTemp = StringSplit(temp, "\t");
 		splitTemp2 = StringSplit(splitTemp[9], " ");
 
@@ -88,7 +88,7 @@ List* genItem()
 
 		Var* Specification = new Var(splitTemp[4]);
 		item->insert(Specification);
-		
+
 		Number* SoldCount = new Number(stoi(splitTemp[10]));
 		item->insert(SoldCount);
 
@@ -104,8 +104,8 @@ List* genItem()
 		Number* ItemPrice = new Number(stoi(splitTemp[6]));
 		item->insert(ItemPrice);
 
-		
-	
+
+
 		for (int i = 0; i < lList[Brand]->size(); i++)
 		{
 			string temp = dynamic_cast<Var*>(lList[Brand]->getTuple(i)->getDate(1))->getVal();
@@ -118,8 +118,8 @@ List* genItem()
 
 		for (int i = 0; i < lList[Category]->size(); i++)
 		{
-			if (splitTemp[0] == dynamic_cast<Var*>(lList[Category]->getTuple(i)->getDate(1))->getVal() && 
-				splitTemp[1] == dynamic_cast<Var*>(lList[Category]->getTuple(i)->getDate(2))->getVal() && 
+			if (splitTemp[0] == dynamic_cast<Var*>(lList[Category]->getTuple(i)->getDate(1))->getVal() &&
+				splitTemp[1] == dynamic_cast<Var*>(lList[Category]->getTuple(i)->getDate(2))->getVal() &&
 				splitTemp[2] == dynamic_cast<Var*>(lList[Category]->getTuple(i)->getDate(3))->getVal())
 			{
 				Var * CategoryId = new Var(dynamic_cast<Var*>(lList[Category]->getTuple(i)->getDate(0))->getVal()); //VARCHAR(5),
@@ -171,8 +171,8 @@ List* genBrand()
 		Tuple *brand = new Tuple("Brand");
 		getline(f, temp);
 		splitTemp = StringSplit(temp, "\t");
-		
-		Var* id = new Var("B"+ to_string(rnadnNum + cnt++));
+
+		Var* id = new Var("B" + to_string(rnadnNum + cnt++));
 		brand->insert(id);
 
 		Var* Name = new Var(splitTemp[0]);
@@ -217,19 +217,19 @@ List* genSupplier()
 
 		Var* id = new Var("S" + to_string(rnadnNum + cnt++));
 		brand->insert(id);
-		
+
 		Var* name = new Var(splitTemp[0]);
 		brand->insert(name);
-		
+
 		Var* CEOName = new Var(splitTemp[3]);
 		brand->insert(CEOName);
-		
+
 		Var* CompanyPhoneNumber = new Var(splitTemp[4]);
 		brand->insert(CompanyPhoneNumber);
-		
+
 		Var* CompanyEMail = new Var(splitTemp[5]);
 		brand->insert(CompanyEMail);
-		
+
 		supplierList->insert(brand);
 		splitTemp = NULL;
 	}
@@ -238,7 +238,7 @@ List* genSupplier()
 
 List* genCategory()
 {
-	List *categoryList =new List();
+	List *categoryList = new List();
 	ifstream f = ifstream("category.txt");
 
 	List ItemList;
@@ -252,7 +252,7 @@ List* genCategory()
 		Tuple *brand = new Tuple("Category");
 		getline(f, temp);
 		splitTemp = StringSplit(temp, "\t");
-		
+
 
 		Var* id = new Var("C" + to_string(rnadnNum + cnt++));
 		brand->insert(id);
@@ -278,13 +278,13 @@ List* genCategory()
 List* genShoppingBasket()
 {
 	List* ShoppingBasketList = new List();
-	 
+
 	for (int i = 0; i < 60; i++)
 	{
 		Tuple* tuple = new Tuple("ShoppingBasket");
-		Var* ShoppingBasketId = new Var(randString(rand()%5+2)+to_string(rNum +i*7));
+		Var* ShoppingBasketId = new Var(randString(rand() % 5 + 2) + to_string(rNum + i * 7));
 		tuple->insert(ShoppingBasketId);
-		
+
 		Number *SumPrice = new Number(0);
 		tuple->insert(SumPrice);
 
@@ -303,49 +303,76 @@ List* genCustomer()
 	for (int i = 0; i < 60; i++)
 	{
 		Tuple* tuple = new Tuple("Customer");
-		
-		Var *Id = new Var(randString(rand()%15+ 3)+to_string(rand() % 15 + 3)); //: Text 타입.고객이 로그인할 때 사용하는 아이디.Key attribute
+
+		Var *Id = new Var(randString(rand() % 15 + 3) + to_string(rand() % 15 + 3)); //: Text 타입.고객이 로그인할 때 사용하는 아이디.Key attribute
 		tuple->insert(Id);
 
 		Var	* Password = new Var(randString(rand() % 15 + 3) + to_string(rand() % 10000 + 100));// : Text 타입.고객이 로그인 할 때 사용하는 비밀번호.
 		tuple->insert(Password);
-		
-		Var*HomeAddress = new Var(randString(rand() % 15 + 3)+ "\, "+randString(rand() % 15 + 3) + to_string(rand() % 1000 +100)); //: Text 타입.고객의 집 주소.
+
+		Var*HomeAddress = new Var(randString(rand() % 15 + 3) + "\, " + randString(rand() % 15 + 3) + to_string(rand() % 1000 + 100)); //: Text 타입.고객의 집 주소.
 		tuple->insert(HomeAddress);
 
-		Var	* PhoneNumber = new Var("010-"+ to_string(rand() % 1000 + 100)+"-" + to_string(rand() % 1000 + 100)); //: Text 타입.고객의 전화번호.
+		Var	* PhoneNumber = new Var("010-" + to_string(rand() % 1000 + 100) + "-" + to_string(rand() % 1000 + 100)); //: Text 타입.고객의 전화번호.
 		tuple->insert(PhoneNumber);
 
-		Var	* Sex =NULL;;// : CHAR 타입.고객의 성별.(M, W).
-		if (rand() % 2 == 0)
-			Sex = new Var("M");
+		if (i > 16)
+		{
+			Var	* Sex = NULL;;// : CHAR 타입.고객의 성별.(M, W).
+			if (rand() % 2 == 0)
+				Sex = new Var("M");
+			else
+				Sex = new Var("W");
+			tuple->insert(Sex);
+		}
 		else
-			Sex = new Var("W");
-		tuple->insert(Sex);
+		{
+			Null * Sex = new Null();// : CHAR 타입.고객의 성별.(M, W).
+			tuple->insert(Sex);
+		}
 
-		Var	* Name = new Var(randString(rand() % 15 + 3)+" "+randString(1)+" "+ randString(rand() % 15 + 3));// : Text 타입.고객의 이름.
+		Var	* Name = new Var(randString(rand() % 15 + 3) + " " + randString(1) + " " + randString(rand() % 15 + 3));// : Text 타입.고객의 이름.
 		tuple->insert(Name);
 
-		Number	* Age = new Number(rand()%100);// : Integer 타입.고객의 나의.
-		tuple->insert(Age);
 
-		Var	* Job = new Var(randString(rand() % 15 + 3));// : Text 타입.고객의 직업
-		tuple->insert(Job);
-
-		Var	* Type = NULL;// : 고객의 분류(도매업자, 소매업자, 기타)
-		switch (rand() % 3)
+		if (i > 16)
 		{
-		case 0:
-			Type = new Var("Wholesaler");
-			break;
-		case 1:
-			Type = new Var("Retailer");
-			break;
-		default:
-			Type = new Var("Nomal");
-			break;
+			Number	* Age = new Number(rand() % 100);// : Integer 타입.고객의 나의.
+			tuple->insert(Age);
 		}
-		tuple->insert(Type);
+		else
+		{
+			Null * Age = new Null();;;// : CHAR 타입.고객의 성별.(M, W).
+			tuple->insert(Age);
+		}
+
+		if (i > 30)
+		{
+			Var	* Job = new Var(randString(rand() % 15 + 3));// : Text 타입.고객의 직업
+			tuple->insert(Job);
+
+			Var	* Type = NULL;// : 고객의 분류(도매업자, 소매업자, 기타)
+			switch (rand() % 3)
+			{
+			case 0:
+				Type = new Var("Wholesaler");
+				break;
+			case 1:
+				Type = new Var("Retailer");
+				break;
+			default:
+				Type = new Var("Nomal");
+				break;
+			}
+			tuple->insert(Type);
+		}
+		else
+		{
+			Null * temp = new Null();;;// : CHAR 타입.고객의 성별.(M, W).
+			tuple->insert(temp);
+			Null * temp2 = new Null();;
+			tuple->insert(temp2);
+		}
 
 		customerList->insert(tuple);
 	}
@@ -354,19 +381,31 @@ List* genCustomer()
 List* genItemOrder()
 {
 	List* ItemOrderList = new List();
-	for (int i = 0; i < 200; i++)
+	int year = 2018;
+	int month = 10;
+	for (int i = 0; i < 385; i++)
 	{
 		Tuple* tuple = new Tuple("ItemOrder");
 
 
 
-		Var *OrderId = new Var("IO-"+randString(rand()%5)+to_string(1000+ rNum +i*17));// : Integer 타입.주문번호.Key attribute.
+		Var *OrderId = new Var("IO-" + randString(rand() % 5) + to_string(1000 + rNum + i * 17));// : Integer 타입.주문번호.Key attribute.
 		tuple->insert(OrderId);
 
-		Number * SumPrice =new Number(0);// : Integer 타입.주문에 대한 총 결제금액.Item 과의 Contains Relation의 purchasedPrice들과 배송업체의 배송비용의 합으로 결정됨.
+		Number * SumPrice = new Number(0);// : Integer 타입.주문에 대한 총 결제금액.Item 과의 Contains Relation의 purchasedPrice들과 배송업체의 배송비용의 합으로 결정됨.
 		tuple->insert(SumPrice);
 
-		Date * OrderDate  = new Date(2000+ rand()%18,rand() % 12+1, rand() % 28+1);// : DateTime 타입.주문 일자
+		if (i != 0 && i % 3 == 0)
+		{
+			month--;
+			if (month <= 0)
+			{
+				month = 12;
+				year -= 1;
+			}
+		}
+
+		Date * OrderDate = new Date(year, month, rand() % 27);// : DateTime 타입.주문 일자
 		tuple->insert(OrderDate);
 
 
@@ -388,9 +427,9 @@ List* genItemOrder()
 		}
 		tuple->insert(OrderStatus);
 
-		Var * PurchasedCustomerId = new Var(dynamic_cast<Var*>(lList[Customer]->getTuple(rand()% (lList[Customer]->size()))->getDate(0))->getVal()); //VARCHAR(30),
+		Var * PurchasedCustomerId = new Var(dynamic_cast<Var*>(lList[Customer]->getTuple(rand() % (lList[Customer]->size() - 5))->getDate(0))->getVal()); //VARCHAR(30),
 		tuple->insert(PurchasedCustomerId);
-		
+
 		for (int i = 0; i < lList[Location]->size(); i++)
 		{
 			if (PurchasedCustomerId->getVal() == dynamic_cast<Var*>(lList[Location]->getTuple(i)->getDate(5))->getVal())
@@ -400,7 +439,7 @@ List* genItemOrder()
 				tuple->insert(LocationId);
 				Var * ShipperName = new Var(dynamic_cast<Var*>(lList[Location]->getTuple(i)->getDate(4))->getVal()); //VARCHAR(15)
 				tuple->insert(ShipperName);
-			
+
 			}
 		}
 
@@ -422,9 +461,9 @@ List* genLocation()
 	for (int i = 0; i < 60; i++)
 	{
 		Tuple* tuple = new Tuple("ShippingLocation");
-		
-		
-		Var	* id = new Var("SL"+to_string(rnadNum+cnt++));// 
+
+
+		Var	* id = new Var("SL" + to_string(rnadNum + cnt++));// 
 		tuple->insert(id);
 
 		Var	* CityOrStateName = new Var(randString(rand() % 15 + 3));// : Text 타입.시 / 도명.
@@ -451,13 +490,13 @@ List* genLocation()
 			ShipperName = new Var(dynamic_cast<Var*>(lList[Shipper]->getTuple(2)->getDate(0))->getVal());
 			break;
 		}
-		
+
 		tuple->insert(MainCategory);
 		tuple->insert(ShipperName);
 		Var * CustomerId = new Var(dynamic_cast<Var*>(lList[Customer]->getTuple(i)->getDate(0))->getVal()); //VARCHAR(30),
 		tuple->insert(CustomerId);
-		
-		
+
+
 
 		locationList->insert(tuple);
 	}
@@ -481,12 +520,12 @@ List* genShipper()
 		splitTemp = StringSplit(temp, "\t");
 
 
-		Var* id = new Var("SH"+to_string(randNum+ cnt++));
+		Var* id = new Var("SH" + to_string(randNum + cnt++));
 		shipper->insert(id);
 
 		Var* name = new Var(splitTemp[0]);
 		shipper->insert(name);
-		
+
 		Number* ExpectedDeliveryTime = new Number(stoi(splitTemp[2]));
 		shipper->insert(ExpectedDeliveryTime);
 
@@ -502,13 +541,13 @@ List* genShipper()
 List* genBasketContains()
 {
 	List *BasketContainsList = new List();
-	for (int i = 0; i < 200; i++)
+	for (int i = 0; i < 700; i++)
 	{
 
 
 		Tuple * tuple = new Tuple("BasketContains");
 
-		Tuple * basketMaster = lList[ShoppingBasket]->getTuple(rand()%lList[ShoppingBasket]->size());
+		Tuple * basketMaster = lList[ShoppingBasket]->getTuple(rand() % (lList[ShoppingBasket]->size() - 20));
 
 		Var * CustomerId = new Var(dynamic_cast<Var*>(basketMaster->getDate(2))->getVal());// VARCHAR(30)
 		tuple->insert(CustomerId);
@@ -516,7 +555,7 @@ List* genBasketContains()
 		tuple->insert(ShoppingBasketId);
 		Var * ItemCode = new Var(dynamic_cast<Var*>(lList[Item]->getTuple(rand() % lList[Item]->size())->getDate(0))->getVal()); // VARCHAR(20) NOT NULL
 		tuple->insert(ItemCode);
-		Number * ItemCount = new Number(rand()%50); //INT
+		Number * ItemCount = new Number(rand() % 50); //INT
 		tuple->insert(ItemCount);
 		BasketContainsList->insert(tuple);
 	}
@@ -532,14 +571,59 @@ List* genOrderContains()
 	for (int i = 0; i < lList[ItemOrder]->size(); i++)
 	{
 		Tuple * tuple = new Tuple("OrderContains");
-		Var *ItemCode = new Var(dynamic_cast<Var*>( lList[Item]->getTuple(rand()% lList[Item]->size())->getDate(0))->getVal()); //VARCHAR(20) NOT NULL,
+		Var *ItemCode = new Var(dynamic_cast<Var*>(lList[Item]->getTuple(rand() % lList[Item]->size())->getDate(0))->getVal()); //VARCHAR(20) NOT NULL,
 		tuple->insert(ItemCode);
 		Var * OrderId = new Var(dynamic_cast<Var*>(lList[ItemOrder]->getTuple(i)->getDate(0))->getVal()); //VARCHAR(30),
 		tuple->insert(OrderId);
 		Number* PurchasedPrice = new Number(0); //INT,
 		tuple->insert(PurchasedPrice);
-		Number* ItemCount = new Number(rand()%50);
-		tuple->insert(ItemCount);
+
+
+		Number* ItemCount = NULL;
+		for (int i = 0; i < (lList[ItemOrder]->size()); i++)
+		{
+			if (OrderId->getVal() == dynamic_cast<Var*>(lList[ItemOrder]->getTuple(i)->getDate(0))->getVal())
+			{
+
+				for (int j = 0; j < (lList[Customer]->size()); j++)
+				{
+					if (dynamic_cast<Var*>(lList[ItemOrder]->getTuple(i)->getDate(4))->getVal() == dynamic_cast<Var*>(lList[Customer]->getTuple(j)->getDate(0))->getVal())
+					{
+						if (lList[Customer]->getTuple(j)->getDate(8)->toString().compare("\"Wholesaler\"") == 0)
+						{
+							ItemCount = new Number(rand() % 200 + 100);
+						}
+						else if (lList[Customer]->getTuple(j)->getDate(8)->toString().compare("\"Retailer\"") == 0)
+						{
+							ItemCount = new Number(rand() % 50 + 50);
+						}
+						else
+						{
+							ItemCount = new Number(rand() % 9 + 1);
+						}
+						break;
+					}
+				}
+
+			}
+		}
+
+
+
+		if (ItemCount != NULL)
+			tuple->insert(ItemCount);
+		int itemPrice = 0;
+
+		for (int i = 0; i < (lList[Item]->size()); i++)
+		{
+			if (ItemCode->getVal() == dynamic_cast<Var*>(lList[Item]->getTuple(i)->getDate(0))->getVal())
+			{
+				itemPrice = dynamic_cast<Number*>(lList[Item]->getTuple(i)->getDate(7))->getVal();
+				break;
+			}
+			
+		}
+		PurchasedPrice->setVal(itemPrice*(ItemCount->getVal()));
 		OrderContainsList->insert(tuple);
 	}
 	for (int i = 0; i < 200; i++)
@@ -548,21 +632,61 @@ List* genOrderContains()
 		Var *ItemCode = new Var(dynamic_cast<Var*>(lList[Item]->getTuple(rand() % lList[Item]->size())->getDate(0))->getVal()); //VARCHAR(20) NOT NULL,
 		tuple->insert(ItemCode);
 
-		Var * OrderId = new Var(dynamic_cast<Var*>(lList[ItemOrder]->getTuple(rand()% lList[ItemOrder]->size())->getDate(0))->getVal()); //VARCHAR(30),
+		Var * OrderId = new Var(dynamic_cast<Var*>(lList[ItemOrder]->getTuple(rand() % lList[ItemOrder]->size())->getDate(0))->getVal()); //VARCHAR(30),
 		tuple->insert(OrderId);
 
 		Number* PurchasedPrice = new Number(0); //INT,
 		tuple->insert(PurchasedPrice);
 
-		Number* ItemCount = new Number(rand() % 50);
-		tuple->insert(ItemCount);
 
+		Number* ItemCount = NULL;
+		for (int i = 0; i < (lList[ItemOrder]->size()); i++)
+		{
+			if (OrderId->getVal() == dynamic_cast<Var*>(lList[ItemOrder]->getTuple(i)->getDate(0))->getVal())
+			{
+
+				for (int j = 0; j < (lList[Customer]->size()); j++)
+				{
+					if (dynamic_cast<Var*>(lList[ItemOrder]->getTuple(i)->getDate(4))->getVal() == dynamic_cast<Var*>(lList[Customer]->getTuple(j)->getDate(0))->getVal())
+					{
+						if (lList[Customer]->getTuple(j)->getDate(8)->toString().compare("\'Wholesaler\'") == 0)
+						{
+							ItemCount = new Number(rand() % 200 + 100);
+						}
+						else if (lList[Customer]->getTuple(j)->getDate(8)->toString().compare("\'Retailer\'") == 0)
+						{
+							ItemCount = new Number(rand() % 50 + 50);
+						}
+						else
+						{
+							ItemCount = new Number(rand() % 9 + 1);
+						}
+						break;
+					}
+				}
+
+			}
+		}
+
+		if (ItemCount != NULL)
+			tuple->insert(ItemCount);
+
+		int itemPrice = 0;
+		for (int i = 0; i < (lList[Item]->size()); i++)
+		{
+			if (ItemCode->getVal() == dynamic_cast<Var*>(lList[Item]->getTuple(i)->getDate(0))->getVal())
+			{
+				itemPrice = dynamic_cast<Number*>(lList[Item]->getTuple(i)->getDate(7))->getVal();
+				break;
+			}
+		}
+		PurchasedPrice->setVal(itemPrice*(ItemCount->getVal()));
 		OrderContainsList->insert(tuple);
 	}
-	
 
 	return OrderContainsList;
 }
+
 List* genOrderShipTo()
 {
 	List *OrderShipToList = new List();
@@ -570,7 +694,7 @@ List* genOrderShipTo()
 	{
 		Tuple * tuple = new Tuple("OrderShipTo");
 
-		Var* CustomerId = new Var(dynamic_cast<Var*>(lList[Location]->getTuple(rand()%lList[Location]->size())->getDate(4))->getVal());  //VARCHAR(30),
+		Var* CustomerId = new Var(dynamic_cast<Var*>(lList[Location]->getTuple(rand() % lList[Location]->size())->getDate(4))->getVal());  //VARCHAR(30),
 		tuple->insert(CustomerId);
 		Var*	OrderId = new Var(dynamic_cast<Var*>(lList[ItemOrder]->getTuple(i)->getDate(0))->getVal());//VARCHAR(30),
 		tuple->insert(OrderId);
@@ -581,7 +705,7 @@ List* genOrderShipTo()
 
 		OrderShipToList->insert(tuple);
 	}
-	
+
 	return OrderShipToList;
 }
 
@@ -589,12 +713,12 @@ List* genOrderShipTo()
 string randString(int number)
 {
 	std::ostringstream ostr;
-	
+
 	ostr << (char)(rand() % 26 + 'A');
 
 	for (int i = 1; i < number; i++)
 	{
 		ostr << (char)(rand() % 26 + 'a');
 	}
-	return ostr.str(); 
+	return ostr.str();
 }

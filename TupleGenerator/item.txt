@@ -1,73 +1,73 @@
 Main Category	Middle class	Small Category	product name	standard	brand	price	Product Code	Stock	Shipments / Units	sales rate
-Safety goods	Leisure goods	bag	bag	CRUSH 32	K2 Korea	128000	W864-5313	5	1 / joe	0
-Safety goods	Leisure goods	bag	bag	Lewis Hippos 4	Child	29000	W864-9595	4	1 / EA	0
-Safety goods	Leisure goods	bag	bag	Line 30	Black Yak	145000	W843-8704	3	1 / EA	0
-Safety goods	Leisure goods	bag	backpack	Holly backpack (public) 25L Green	Leisure Time	68000	W848-9197	5	1 / EA	0
-Safety goods	Leisure goods	Walking	Walking	Light Cool Public	K2 Korea	189000	W846-5753	3	1 / joe	0
-Safety goods	Leisure goods	Walking	Walking	Leah (250) Black	K2 Korea	99000	W833-0439	5	1 / joe	0
-Safety goods	Leisure goods	Walking	Walking	Illinois (280) Black	K2 Korea	209000	W864-8541	7	1 / joe	0
+Hardware, gardening, office supplies	Hardware	Door locks, hinges, door closure	Angular iron (stainless steel)	Soso (15 * 24)	Daemyung Industry	120	C177-0805	6244	300 / EA	0
+Safety goods	Safety	Winterization	Winterization	K2-51 (260) Black	K2 safety shoes	84000	W849-9635	5565	1 / joe	0
+Safety goods	Safety	Safety accessories	Safety fire	Brown	K2 safety shoes	610	W847-4821	4541	50 / joe	0
+Industrial Supplies	Chemicals & Lubricants	Grease	Root water grease	MG-610 420ml	Navachem	2890	W818-2911	4395	1 / EA	0
+Safety goods	Safety	Safety accessories	Air insole	270	SMATO Safety	1390	W863-0278	4045	10 / Article	0
+Industrial Supplies	Chemicals & Lubricants	Anti-corrosion agent / coating agent	Spray (lacquer)	Rusty	renewal	2450	W820-0475	3428	40 / EA	0
+Industrial Supplies	Chemicals & Lubricants	Anti-corrosion agent / coating agent	Spray (lacquer)	silver	Lucky Industry	1690	W819-0026	3256	40 / EA	0
+Safety goods	Safety	Winterization	Winter boots	# 81 (250) Black / Male - Peninsula Type	Fine Well	14400	W850-4788	3235	1 / joe	0
+Industrial Supplies	Chemicals & Lubricants	Grease	Grease (liquid)	G-LUB 10M 420ml	Navachem	11200	W818-0542	3107	1 / EA	0
+Hardware, gardening, office supplies	Hardware	Sickle, pickaxe, shovel	Stick	HS-MS503	Shovel	7260	C132-1061	3100	10 / EA	0
+Safety goods	Safety	Rainboots	Fashion boots	Shinto (General Type) 270	SMATO Boots	10700	W888-1818	3026	1 / joe	0
+Hardware, gardening, office supplies	Hardware	Hammer, Paru	Misunderstanding (fiber)	3LBS	The Sumo Hammer	8720	C100-2111	3006	1 / EA	0
+Industrial Supplies	Chemicals & Lubricants	Anti-corrosion agent / coating agent	Spray (lacquer)	silver	renewal	1860	W820-0022	2329	40 / EA	0
+Hardware, gardening, office supplies	Life, cleaning supplies	Household goods	Smart hanger	Slim 3P	Changshin	4770	C171-5516	2326	1 / SET	0
+Hardware, gardening, office supplies	Life, cleaning supplies	Household goods	Wave Bathroom Supplies	chair	Changshin	6670	C171-5589	2128	1 / EA	0
+Hardware, gardening, office supplies	Life, cleaning supplies	Transient, esophagus, kitchen scissors	Cutting scissors	SM-260 GOLD	Scarlet Foundation scissors	16000	C101-5601	2028	1 / EA	0
+Hardware, gardening, office supplies	Life, cleaning supplies	Transient, esophagus, kitchen scissors	Scissors	SM-OS9	Scarlet scissors	2670	C100-4128	1072	10 / EA	0
+Hardware, gardening, office supplies	Hardware	Hammer, Paru	Ball hammer	4OZ	The Sumo Hammer	3610	C100-1811	1043	1 / EA	0
+Hardware, gardening, office supplies	Life, cleaning supplies	Household goods	Flip strong absorption	Multi-purpose hook	Changshin	3600	C171-6065	1022	1 / SET	0
+Industrial Supplies	light	Work lights	Rechargeable work lights	SL601-9L	Samsung	25500	W875-7238	2100	1 / EA	0
+Industrial Supplies	light	Lamp, LED lamp	LED bulb	SM-LP8W (Daylight / 8W)	SMATO LED lighting	2800	W113-7949	4497	1 / EA	0
+Industrial Supplies	light	Work lights	Working lights-LED	KE-15 (Rechargeable)	Korea Electric Lighting	76000	W140-1862	3488	1 / EA	0
+Industrial Supplies	Chemicals & Lubricants	Grease	Grease (tube)	85G (21030)	Super Rube	7310	W828-0064	8881	1 / EA	0
+Industrial Supplies	light	Work lights	A general lantern	SML-302-2L (LED)	SMATO Lantern	7200	W102-4584	74	1 / EA	0
+Industrial Supplies	Chemicals & Lubricants	Grease	Grease (high temperature)	1LB (400G) # 41160	Super Rube	18300	W828-0019	72	1 / EA	0
+Industrial Supplies	light	Lamp, LED lamp	Fluorescent lamp	High frequency (1st grade) 32EX-D	SK Rose Bar	2050	W879-0011	70	25 / EA	0
+Industrial Supplies	Chemicals & Lubricants	Building sealant	silicon	OS translucent 270ml	Shinetsu	2410	W868-0945	63	25 / EA	0
+Industrial Supplies	Chemicals & Lubricants	Building sealant	silicon	OS Gray 270ml	Shinetsu	2150	W868-0680	0	25 / EA	0
+Hardware, gardening, office supplies	Life, cleaning supplies	Transient, esophagus, kitchen scissors	Scissors (office)	SM-OS8	Scarlet scissors	2520	C100-4119	0	10 / EA	0
+Safety goods	Safety	Safety accessories	Insole for safety	265	Leakap	1520	W845-0900	0	10 / Article	0
+Industrial Supplies	light	Lamp, LED lamp	LED lighting fixtures	SM-LF30W (Daylight / 30W) - Date light	SMATO LED lighting	9800	W113-7921	48	1 / EA	0
+Industrial Supplies	Chemicals & Lubricants	Building sealant	silicon	OS transparent 270ml	Shinetsu	2410	W868-0699	45	25 / EA	0
+Industrial Supplies	Chemicals & Lubricants	Anti-corrosion agent / coating agent	Spray (lacquer)	Red	Lucky Industry	1690	W819-0035	39	40 / EA	0
+Industrial Supplies	light	Emitter	LED electronic signal bar	40x260mm	SK Rose Bar	5850	W879-3841	37	1 / EA	0
+Hardware, gardening, office supplies	Hardware	Door locks, hinges, door closure	Door pedestal (horseshoe)	DHS-101 (Small)	Daeheung Metal	1580	C166-0915	37	30 / EA	0
+Hardware, gardening, office supplies	Life, cleaning supplies	battery	Battery (manganese)	R20 (D) (1 plate = 2EA)	Bleach Battery	1100	C401-0148	35	12 / edition	0
+Safety goods	Safety	Safety accessories	Air insole	260	SMATO Safety	1390	W863-0250	32	10 / Article	0
+Industrial Supplies	light	Work lights	Bellows, etc.	SHT-WK0603 (LED-magnet type)	SMATO work lights	23000	W105-3373	25	1 / EA	0
+Industrial Supplies	Chemicals & Lubricants	Building sealant	silicon	909S Gray 270ml	Lucky silicon	2440	W868-0559	25	25 / EA	0
+Hardware, gardening, office supplies	Hardware	Door locks, hinges, door closure	Each quarter	SM-AS3024 (Of)	The name of Sumata	180	C177-1424	25	200 / EA	0
+Hardware, gardening, office supplies	Life, cleaning supplies	battery	Battery (alkaline)	LR03 (AAA) (1 plate = 2EA)	Bleach Battery	650	C401-0111	23	30 / Edition	0
+Industrial Supplies	light	Emitter	Slip emitter	SF-50FLS (= DI-SY-LED50W alternative)	Starlight	42900	W879-4017	21	1 / EA	0
+Hardware, gardening, office supplies	Life, cleaning supplies	Transient, esophagus, kitchen scissors	Cutting scissors	SM-280 GOLD	Scarlet Foundation scissors	20000	C101-5610	19	1 / EA	0
+Industrial Supplies	light	Emitter	Floodlight-LED	BS-WTL 20-2 (= BS-WNL 20-2)	Enwai Korea	93700	W144-4371	16	1 / EA	0
+Hardware, gardening, office supplies	Hardware	Door locks, hinges, door closure	Each quarter	SM-AS1524 (Soso)	The name of Sumata	110	C177-1406	13	300 / EA	0
+Hardware, gardening, office supplies	Life, cleaning supplies	Household goods	Paper cup	1000PCS	Sumato paper cup	16800	C102-3071	13	1 / BOX	0
+Safety goods	Safety	Winterization	Chinese boots	260	Instead,	33900	W864-4697	12	1 / joe	0
+Hardware, gardening, office supplies	Hardware	Hammer, Paru	Cold hammer	Cold hammer	brig	6570	C100-2102	12	1 / EA	0
 Safety goods	Leisure goods	Walking	Walking	Bordeaux for men (275) Brown	Child	199000	W864-9993	10	1 / joe	0
-Safety goods	Leisure goods	Camping supplies	mat	2 square mattress (FREE) Khaki	K2 Korea	36000	W843-9961	7	1 / joe	0
+Safety goods	Leisure goods	Camping supplies	tent	Caties 2IN1 Beige	Child	159000	W864-8897	10	1 / EA	0
 Safety goods	Leisure goods	Camping supplies	sleeping bag	Ball padded sleeping bag (FREE) NAVY	K2 Korea	119000	W864-5456	8	1 / EA	0
 Safety goods	Leisure goods	Camping supplies	tent	Non-nested double	K2 Korea	189000	W864-5304	8	1 / EA	0
-Safety goods	Leisure goods	Camping supplies	tent	Caties 2IN1 Beige	Child	159000	W864-8897	10	1 / EA	0
-Safety goods	Safety	Winterization	Chinese boots	260	Instead,	33900	W864-4697	12	1 / joe	0
 Safety goods	Safety	Winterization	Fashion Boots	265 brown / male	Fine Well	16200	W899-2442	8	1 / joe	0
-Safety goods	Safety	Winterization	Winterization	K2-51 (260) Black	K2 safety shoes	84000	W849-9635	65	1 / joe	0
-Safety goods	Safety	Winterization	Winter boots	# 81 (250) Black / Male - Peninsula Type	Fine Well	14400	W850-4788	35	1 / joe	0
-Safety goods	Safety	Safety accessories	Safety fire	Brown	K2 safety shoes	610	W847-4821	41	50 / joe	0
-Safety goods	Safety	Safety accessories	Insole for safety	265	Leakap	1520	W845-0900	48	10 / Article	0
-Safety goods	Safety	Safety accessories	Air insole	260	SMATO Safety	1390	W863-0250	32	10 / Article	0
-Safety goods	Safety	Safety accessories	Air insole	270	SMATO Safety	1390	W863-0278	45	10 / Article	0
 Safety goods	Safety	Rainboots	Fashion boots	SRB-01 (270)	SMATO Boots	7420	W113-8133	8	1 / joe	0
-Safety goods	Safety	Rainboots	Fashion boots	Shinto (General Type) 270	SMATO Boots	10700	W888-1818	6	1 / joe	0
-Safety goods	Safety	Rainboots	Yodo Stable Boots	270	Instead,	32200	W850-0029	4	1 / joe	0
-Safety goods	Safety	Rainboots	Yodo Stable Boots	(PS-01) 265	Big Toss	29600	W846-2808	5	1 / joe	0
+Safety goods	Leisure goods	Walking	Walking	Illinois (280) Black	K2 Korea	209000	W864-8541	7	1 / joe	0
+Safety goods	Leisure goods	Camping supplies	mat	2 square mattress (FREE) Khaki	K2 Korea	36000	W843-9961	7	1 / joe	0
 Industrial Supplies	light	Lamp, LED lamp	Incandescent bulb	300W transparent light	SK Rose Bar	2240	W879-0303	7	20 / EA	0
-Industrial Supplies	light	Lamp, LED lamp	Fluorescent lamp	High frequency (1st grade) 32EX-D	SK Rose Bar	2050	W879-0011	70	25 / EA	0
-Industrial Supplies	light	Lamp, LED lamp	LED lighting fixtures	SM-LF30W (Daylight / 30W) - Date light	SMATO LED lighting	9800	W113-7921	48	1 / EA	0
-Industrial Supplies	light	Lamp, LED lamp	LED bulb	SM-LP8W (Daylight / 8W)	SMATO LED lighting	2800	W113-7949	97	1 / EA	0
-Industrial Supplies	light	Work lights	Working lights-LED	KE-15 (Rechargeable)	Korea Electric Lighting	76000	W140-1862	88	1 / EA	0
-Industrial Supplies	light	Work lights	Bellows, etc.	SHT-WK0603 (LED-magnet type)	SMATO work lights	23000	W105-3373	25	1 / EA	0
-Industrial Supplies	light	Work lights	Rechargeable work lights	SL601-9L	Samsung	25500	W875-7238	100	1 / EA	0
-Industrial Supplies	light	Work lights	A general lantern	SML-302-2L (LED)	SMATO Lantern	7200	W102-4584	74	1 / EA	0
-Industrial Supplies	light	Emitter	Slip emitter	SF-50FLS (= DI-SY-LED50W alternative)	Starlight	42900	W879-4017	21	1 / EA	0
-Industrial Supplies	light	Emitter	Floodlight-LED	BS-WTL 20-2 (= BS-WNL 20-2)	Enwai Korea	93700	W144-4371	16	1 / EA	0
-Industrial Supplies	light	Emitter	LED Floodlight (Rechargeable)	BS-HCL20	Enwai Korea	67900	W144-3123	5	1 / EA	0
-Industrial Supplies	light	Emitter	LED electronic signal bar	40x260mm	SK Rose Bar	5850	W879-3841	37	1 / EA	0
-Industrial Supplies	Chemicals & Lubricants	Building sealant	silicon	909S Gray 270ml	Lucky silicon	2440	W868-0559	25	25 / EA	0
-Industrial Supplies	Chemicals & Lubricants	Building sealant	silicon	OS transparent 270ml	Shinetsu	2410	W868-0699	45	25 / EA	0
-Industrial Supplies	Chemicals & Lubricants	Building sealant	silicon	OS Gray 270ml	Shinetsu	2150	W868-0680	59	25 / EA	0
-Industrial Supplies	Chemicals & Lubricants	Building sealant	silicon	OS translucent 270ml	Shinetsu	2410	W868-0945	63	25 / EA	0
-Industrial Supplies	Chemicals & Lubricants	Grease	Grease (high temperature)	1LB (400G) # 41160	Super Rube	18300	W828-0019	72	1 / EA	0
-Industrial Supplies	Chemicals & Lubricants	Grease	Grease (tube)	85G (21030)	Super Rube	7310	W828-0064	81	1 / EA	0
-Industrial Supplies	Chemicals & Lubricants	Grease	Root water grease	MG-610 420ml	Navachem	2890	W818-2911	95	1 / EA	0
-Industrial Supplies	Chemicals & Lubricants	Grease	Grease (liquid)	G-LUB 10M 420ml	Navachem	11200	W818-0542	107	1 / EA	0
-Industrial Supplies	Chemicals & Lubricants	Anti-corrosion agent / coating agent	Spray (lacquer)	silver	Lucky Industry	1690	W819-0026	56	40 / EA	0
-Industrial Supplies	Chemicals & Lubricants	Anti-corrosion agent / coating agent	Spray (lacquer)	Red	Lucky Industry	1690	W819-0035	39	40 / EA	0
-Industrial Supplies	Chemicals & Lubricants	Anti-corrosion agent / coating agent	Spray (lacquer)	Rusty	renewal	2450	W820-0475	28	40 / EA	0
-Industrial Supplies	Chemicals & Lubricants	Anti-corrosion agent / coating agent	Spray (lacquer)	silver	renewal	1860	W820-0022	29	40 / EA	0
-Hardware, gardening, office supplies	Hardware	Sickle, pickaxe, shovel	Stick	HS-MS503	Shovel	7260	C132-1061	100	10 / EA	0
-Hardware, gardening, office supplies	Hardware	Sickle, pickaxe, shovel	Each	HS-GS501	Shovel	7260	C132-1070	6	10 / EA	0
 Hardware, gardening, office supplies	Hardware	Sickle, pickaxe, shovel	sickle	HS-CSS301 (Chosun Sang)	Hanshin hammer	4440	C132-2848	7	10 / EA	0
-Hardware, gardening, office supplies	Hardware	Sickle, pickaxe, shovel	sickle	S-18	White horse	4730	C270-2661	0	10 / EA	0
-Hardware, gardening, office supplies	Hardware	Door locks, hinges, door closure	Each quarter	SM-AS1524 (Soso)	The name of Sumata	110	C177-1406	13	300 / EA	0
-Hardware, gardening, office supplies	Hardware	Door locks, hinges, door closure	Each quarter	SM-AS3024 (Of)	The name of Sumata	180	C177-1424	25	200 / EA	0
-Hardware, gardening, office supplies	Hardware	Door locks, hinges, door closure	Angular iron (stainless steel)	Soso (15 * 24)	Daemyung Industry	120	C177-0805	64	300 / EA	0
-Hardware, gardening, office supplies	Hardware	Door locks, hinges, door closure	Door pedestal (horseshoe)	DHS-101 (Small)	Daeheung Metal	1580	C166-0915	37	30 / EA	0
-Hardware, gardening, office supplies	Hardware	Hammer, Paru	Cold hammer	Cold hammer	brig	6570	C100-2102	12	1 / EA	0
-Hardware, gardening, office supplies	Hardware	Hammer, Paru	Welding hammer (versatile)	versus	brig	12400	C131-0092	5	1 / EA	0
-Hardware, gardening, office supplies	Hardware	Hammer, Paru	Misunderstanding (fiber)	3LBS	The Sumo Hammer	8720	C100-2111	6	1 / EA	0
-Hardware, gardening, office supplies	Hardware	Hammer, Paru	Ball hammer	4OZ	The Sumo Hammer	3610	C100-1811	3	1 / EA	0
+Hardware, gardening, office supplies	Hardware	Sickle, pickaxe, shovel	Each	HS-GS501	Shovel	7260	C132-1070	6	10 / EA	0
 Hardware, gardening, office supplies	Life, cleaning supplies	battery	Battery (alkaline)	LR6 (AA) (1 plate = 2EA)	Vexcel	1000	C142-0034	6	20 / Edition	0
 Hardware, gardening, office supplies	Life, cleaning supplies	battery	Battery (alkaline)	LR03 (AAA) (1 plate = 2EA)	Vexcel	1000	C142-0016	6	20 / Edition	0
-Hardware, gardening, office supplies	Life, cleaning supplies	battery	Battery (alkaline)	LR03 (AAA) (1 plate = 2EA)	Bleach Battery	650	C401-0111	23	30 / Edition	0
-Hardware, gardening, office supplies	Life, cleaning supplies	battery	Battery (manganese)	R20 (D) (1 plate = 2EA)	Bleach Battery	1100	C401-0148	35	12 / edition	0
-Hardware, gardening, office supplies	Life, cleaning supplies	Transient, esophagus, kitchen scissors	Cutting scissors	SM-260 GOLD	Scarlet Foundation scissors	16000	C101-5601	28	1 / EA	0
-Hardware, gardening, office supplies	Life, cleaning supplies	Transient, esophagus, kitchen scissors	Cutting scissors	SM-280 GOLD	Scarlet Foundation scissors	20000	C101-5610	19	1 / EA	0
-Hardware, gardening, office supplies	Life, cleaning supplies	Transient, esophagus, kitchen scissors	Scissors (office)	SM-OS8	Scarlet scissors	2520	C100-4119	53	10 / EA	0
-Hardware, gardening, office supplies	Life, cleaning supplies	Transient, esophagus, kitchen scissors	Scissors	SM-OS9	Scarlet scissors	2670	C100-4128	72	10 / EA	0
-Hardware, gardening, office supplies	Life, cleaning supplies	Household goods	Paper cup	1000PCS	Sumato paper cup	16800	C102-3071	13	1 / BOX	0
-Hardware, gardening, office supplies	Life, cleaning supplies	Household goods	Smart hanger	Slim 3P	Changshin	4770	C171-5516	26	1 / SET	0
-Hardware, gardening, office supplies	Life, cleaning supplies	Household goods	Wave Bathroom Supplies	chair	Changshin	6670	C171-5589	28	1 / EA	0
-Hardware, gardening, office supplies	Life, cleaning supplies	Household goods	Flip strong absorption	Multi-purpose hook	Changshin	3600	C171-6065	22	1 / SET	0
+Safety goods	Leisure goods	bag	bag	CRUSH 32	K2 Korea	128000	W864-5313	5	1 / joe	0
+Safety goods	Leisure goods	bag	backpack	Holly backpack (public) 25L Green	Leisure Time	68000	W848-9197	5	1 / EA	0
+Safety goods	Leisure goods	Walking	Walking	Leah (250) Black	K2 Korea	99000	W833-0439	5	1 / joe	0
+Safety goods	Safety	Rainboots	Yodo Stable Boots	(PS-01) 265	Big Toss	29600	W846-2808	5	1 / joe	0
+Industrial Supplies	light	Emitter	LED Floodlight (Rechargeable)	BS-HCL20	Enwai Korea	67900	W144-3123	5	1 / EA	0
+Hardware, gardening, office supplies	Hardware	Hammer, Paru	Welding hammer (versatile)	versus	brig	12400	C131-0092	5	1 / EA	0
+Safety goods	Leisure goods	bag	bag	Lewis Hippos 4	Child	29000	W864-9595	4	1 / EA	0
+Safety goods	Safety	Rainboots	Yodo Stable Boots	270	Instead,	32200	W850-0029	4	1 / joe	0
+Safety goods	Leisure goods	bag	bag	Line 30	Black Yak	145000	W843-8704	3	1 / EA	0
+Safety goods	Leisure goods	Walking	Walking	Light Cool Public	K2 Korea	189000	W846-5753	3	1 / joe	0
+Hardware, gardening, office supplies	Hardware	Sickle, pickaxe, shovel	sickle	S-18	White horse	4730	C270-2661	0	10 / EA	0

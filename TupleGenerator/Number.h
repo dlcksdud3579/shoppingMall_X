@@ -9,6 +9,7 @@ public:
 	virtual string toString();
 	Number(int _var);
 	int getVal() { return val; }
+	void setVal(int data) { this->val = data; }
 	~Number();
 };
 
