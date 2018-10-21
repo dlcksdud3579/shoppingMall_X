@@ -424,7 +424,7 @@ List* genItemOrder()
 			}
 		}
 
-		Date * OrderDate = new Date(year, month, rand() % 27);// : DateTime 타입.주문 일자
+		Date * OrderDate = new Date(year, month, rand() % 26+1);// : DateTime 타입.주문 일자
 		tuple->insert(OrderDate);
 
 
