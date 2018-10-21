@@ -1,0 +1,157 @@
+
+
+DROP DATABASE ShoppingMallDB;
+CREATE DATABASE ShoppingMallDB;
+USE ShoppingMallDB;
+
+#creating Entities
+CREATE TABLE Brand(
+    BrandId VARCHAR(5) NOT NULL,
+    BrandName VARCHAR(50) NOT NULL,
+    SoldCount INT DEFAULT 0,
+    PRIMARY KEY (BrandId),
+    UNIQUE (BrandId),
+    UNIQUE (BrandName),
+    
+    #foreign key
+    SupplierId VARCHAR(5)
+);
+
+CREATE TABLE Supplier(
+    SupplierId VARCHAR(5) NOT NULL,
+    SupplierName VARCHAR(20) NOT NULL,
+    CEOName VARCHAR(20),
+    CompanyPhoneNumber VARCHAR(20),
+    CompanyEMail VARCHAR(50),
+    PRIMARY KEY (SupplierId),
+    UNIQUE (SupplierId),
+    UNIQUE (SupplierName)
+);
+
+CREATE TABLE Item(
+    ItemCode VARCHAR(20) NOT NULL,
+    ItemName VARCHAR(50),
+    Specification VARCHAR(50),
+    SoldCount INT DEFAULT 0,
+    Unit VARCHAR(10),
+    BundleSize INT DEFAULT 1,
+    Stock INT DEFAULT 0,
+    ItemPrice INT,
+    PRIMARY KEY (ItemCode),
+    UNIQUE (ItemCode),
+
+    #foreign key
+    BrandId VARCHAR(5),
+    CategoryId VARCHAR(10)
+);
+
+
+CREATE TABLE Category(
+    CategoryId VARCHAR(10),
+    MainCategoryName VARCHAR(50),
+    MiddleCategoryName VARCHAR(50),
+    SmallCategoryName VARCHAR(50),
+    SoldCount INT,
+    PRIMARY KEY (CategoryId),
+    UNIQUE (CategoryId),
+    UNIQUE (MainCategoryName, MiddleCategoryName, SmallCategoryName)
+);
+
+
+CREATE TABLE Customer(
+    Id VARCHAR(30),
+    Password VARCHAR(30),
+    HomeAddress VARCHAR(50),
+    PhoneNumber VARCHAR(15),
+    Sex CHAR,
+    Name VARCHAR(50),
+    AGE INT,
+    JOB VARCHAR(50),
+    Type VARCHAR(30),
+    PRIMARY KEY (Id),
+    UNIQUE (Id)
+);
+
+CREATE TABLE ItemOrder(
+    OrderId VARCHAR(30),
+    SumPrice INT,
+    OrderDate DATE,
+    OrderStatus VARCHAR(50),
+    PRIMARY KEY (OrderId),
+    UNIQUE (OrderId),
+
+    #foreign key
+    PurchasedCustomerId VARCHAR(30),
+    ShippingLocationId VARCHAR(5),
+    ShipperId VARCHAR(5)
+);
+
+CREATE TABLE Shipper(
+    ShipperId VARCHAR(5),
+    ShipperName VARCHAR(15),
+    ExpectedDeveliveryTime INT,
+    ShippingFee INT,
+    
+    PRIMARY KEY (ShipperId),
+    UNIQUE (ShipperId),
+    UNIQUE (ShipperName)
+);
+##################################################################
+
+#Weak Entities
+CREATE TABLE ShoppingBasket(
+    ShoppingBasketId VARCHAR(15),
+    SumPrice INT,
+    
+
+    #foreign key
+    CustomerId VARCHAR(30),
+
+    PRIMARY KEY (CustomerId, ShoppingBasketId),
+    UNIQUE (CustomerId, ShoppingBasketId)
+);
+
+CREATE TABLE ShippingLocation(
+    ShippingLocationId VARCHAR(5),
+    CityOrStateName VARCHAR(30),
+    SpecificAddress VARCHAR(50),
+    MainCategory VARCHAR(30),
+
+    #foreign key
+    ShipperId VARCHAR(5),
+    CustomerId VARCHAR(30),
+
+    FOREIGN Key(ShipperId) REFERENCES Shipper(ShipperId),
+    FOREIGN key(CustomerId) REFERENCES Customer(Id),
+
+    PRIMARY KEY (CustomerId, ShippingLocationId),
+    UNIQUE (CustomerId, ShippingLocationId)
+);
+###################################################################
+
+#Relations
+CREATE TABLE BasketContains(
+    CustomerId VARCHAR(30),
+    ShoppingBasketId VARCHAR(15) NOT NULL,
+    ItemCode VARCHAR(20) NOT NULL,
+    ItemCount INT,
+    PRIMARY KEY (CustomerId, ShoppingBasketId, ItemCode),
+    UNIQUE (CustomerId, ShoppingBasketId, ItemCode),
+
+    FOREIGN KEY (ItemCode) REFERENCES Item(ItemCode),
+    FOREIGN KEY (CustomerId, ShoppingBasketId) REFERENCES ShoppingBasket(CustomerId, ShoppingBasketId)
+);
+
+CREATE TABLE OrderContains(
+    ItemCode VARCHAR(20) NOT NULL,
+    OrderId VARCHAR(30),
+    PurchasedPrice INT,
+    ItemCount INT,
+    PRIMARY KEY (ItemCode, OrderId),
+    UNIQUE (ItemCode, OrderId),
+
+    FOREIGN KEY (ItemCode) REFERENCES Item(ItemCode),
+    FOREIGN KEY (OrderId) REFERENCES ItemOrder(OrderId)
+);
+
+################################################################################################################

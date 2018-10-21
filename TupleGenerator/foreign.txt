@@ -1,0 +1,10 @@
+##################################################################################################################################################################################
+
+#defining foreign keys
+ALTER TABLE Brand ADD FOREIGN KEY (SupplierId) REFERENCES Supplier(SupplierId);
+ALTER TABLE Item ADD FOREIGN KEY (BrandId) REFERENCES Brand(BrandId);
+ALTER TABLE Item ADD FOREIGN KEY (CategoryId) REFERENCES Category(CategoryId);
+ALTER TABLE ShoppingBasket ADD FOREIGN KEY (CustomerId) REFERENCES Customer(Id);
+ALTER TABLE ItemOrder ADD FOREIGN KEY (PurchasedCustomerId) REFERENCES Customer(Id);
+ALTER TABLE ItemOrder ADD FOREIGN KEY (ShipperId) REFERENCES Shipper(ShipperId);
+##################################################################################################################################################################################

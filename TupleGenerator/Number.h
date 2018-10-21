@@ -10,6 +10,7 @@ public:
 	Number(int _var);
 	int getVal() { return val; }
 	void setVal(int data) { this->val = data; }
+	void addVal(int data) { this->val += data; }
 	~Number();
 };
 

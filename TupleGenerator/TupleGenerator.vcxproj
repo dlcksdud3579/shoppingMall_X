@@ -135,10 +135,12 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="category.txt" />
+    <Text Include="foreign.txt" />
     <Text Include="item.txt" />
     <Text Include="brand.txt" />
     <Text Include="shipper.txt" />
     <Text Include="supplier.txt" />
+    <Text Include="table.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
