@@ -574,7 +574,19 @@ List* genBasketContains()
 		tuple->insert(CustomerId);
 		Var * ShoppingBasketId = new Var(dynamic_cast<Var*>(basketMaster->getDate(0))->getVal());// VARCHAR(15) NOT NULL
 		tuple->insert(ShoppingBasketId);
+	
 		ItemMaster = lList[Item]->getTuple(rand() % lList[Item]->size());
+		
+		for (int j = 0; j < BasketContainsList->size(); j++)
+		{
+			if (dynamic_cast<Var*>(BasketContainsList->getTuple(j)->getDate(0))->getVal() == CustomerId->getVal() &&
+				dynamic_cast<Var*>(BasketContainsList->getTuple(j)->getDate(2))->getVal() == dynamic_cast<Var*>(ItemMaster->getDate(0))->getVal())
+			{
+				ItemMaster = lList[Item]->getTuple(rand() % lList[Item]->size());
+				j = -1;
+			}
+		}
+		
 		Var * ItemCode = new Var(dynamic_cast<Var*>(ItemMaster->getDate(0))->getVal()); // VARCHAR(20) NOT NULL
 		tuple->insert(ItemCode);
 		Number * ItemCount = NULL;
@@ -617,12 +629,29 @@ List* genOrderContains()
 	for (int i = 0; i < lList[ItemOrder]->size(); i++)
 	{
 		Tuple * tuple = new Tuple("OrderContains");
+		itemOrder = lList[ItemOrder]->getTuple(i);
+		Var * OrderId = new Var(dynamic_cast<Var*>(itemOrder->getDate(0))->getVal()); //VARCHAR(30),
+
+
+
 		item = lList[Item]->getTuple(rand() % lList[Item]->size());
+		
+		for (int i = 0; i < OrderContainsList->size(); i++)
+		{
+			if (dynamic_cast<Var*>(OrderContainsList->getTuple(i)->getDate(1))->getVal() == OrderId->getVal() &&
+				dynamic_cast<Var*>(OrderContainsList->getTuple(i)->getDate(0))->getVal() == dynamic_cast<Var*>(item->getDate(0))->getVal())
+			{
+				item = lList[Item]->getTuple(rand() % lList[Item]->size());
+				i = -1;
+			}
+		}
+		
+		
 		Var *ItemCode = new Var(dynamic_cast<Var*>(item->getDate(0))->getVal()); //VARCHAR(20) NOT NULL,
 		tuple->insert(ItemCode);
 		
-		itemOrder = lList[ItemOrder]->getTuple(i);
-		Var * OrderId = new Var(dynamic_cast<Var*>(itemOrder->getDate(0))->getVal()); //VARCHAR(30),
+	
+		
 		tuple->insert(OrderId);
 		Number* PurchasedPrice = new Number(0); //INT,
 		tuple->insert(PurchasedPrice);
@@ -684,12 +713,27 @@ List* genOrderContains()
 	for (int i = 0; i < 200; i++)
 	{
 		Tuple * tuple = new Tuple("OrderContains");
-		item = lList[Item]->getTuple(rand() % lList[Item]->size());
-		Var *ItemCode = new Var(dynamic_cast<Var*>(item->getDate(0))->getVal()); //VARCHAR(20) NOT NULL,
-		tuple->insert(ItemCode);
 
 		itemOrder = lList[ItemOrder]->getTuple(rand() % lList[ItemOrder]->size());
 		Var * OrderId = new Var(dynamic_cast<Var*>(itemOrder->getDate(0))->getVal()); //VARCHAR(30),
+
+		item = lList[Item]->getTuple(rand() % lList[Item]->size());
+
+		for (int i = 0; i < OrderContainsList->size(); i++)
+		{
+			if (dynamic_cast<Var*>(OrderContainsList->getTuple(i)->getDate(1))->getVal() == OrderId->getVal() &&
+				dynamic_cast<Var*>(OrderContainsList->getTuple(i)->getDate(0))->getVal() == dynamic_cast<Var*>(item->getDate(0))->getVal())
+			{
+				item = lList[Item]->getTuple(rand() % lList[Item]->size());
+				i = -1;
+			}
+		}
+		
+		
+		Var *ItemCode = new Var(dynamic_cast<Var*>(item->getDate(0))->getVal()); //VARCHAR(20) NOT NULL,
+		tuple->insert(ItemCode);
+
+
 		tuple->insert(OrderId);
 
 		Number* PurchasedPrice = new Number(0); //INT,
