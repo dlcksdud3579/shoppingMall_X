@@ -28,7 +28,7 @@
 	pstmt = conn.prepareStatement(useDatabase);	
 	pstmt.executeQuery();
 	
-	String Id = request.getParameter("idInput");
+	String Id = (String) session.getAttribute("userId");
 	Id = "'" + Id + "'";
 	String Password = request.getParameter("passwordInput");
 	Password = "'" + Password + "'";
@@ -59,9 +59,9 @@
 	if(type.compareTo("NULL") != 0)
 		type = "'" + type + "'";
 	//로그인 쿼리
-	String SignUpQuery = "INSERT INTO Customer VALUES(" + Id + ","+Password +"," + HomeAddress + "," + PhoneNumber + "," + Sex + ","+ name +"," + age + "," +Job +"," + type + ");";
-	pstmt = conn.prepareStatement(SignUpQuery);
-	System.out.println("query : " + SignUpQuery);
+	String updateQuery = "UPDATE Customer SET Password=" + Password +",HomeAddress=" + HomeAddress + ",PhoneNumber=" + PhoneNumber + ",Sex=" + Sex + ",Name="+ name +",AGE=" + age + ",JOB=" +Job +",Type=" + type + " WHERE Id ="+ Id +";";
+	pstmt = conn.prepareStatement(updateQuery);
+	System.out.println("query : " + updateQuery);
 	
 	//예외 처리
 	try{
@@ -69,15 +69,15 @@
 	}	catch(Exception e){
 		//회원가입 페이지러 돌아감
        out.println("<script>");
-       out.println("alert('Sign up Failed')" );	//실패했다고 출력
-       out.println("location='SignupPage.html'");	//회원가입 페이지로 돌아감
+       out.println("alert('Edit  Failed')" );	//경고 메시지
+       out.println("location='EditMembership.html'");	//정보수정 페이지로 돌아감
        out.println("</script>");       
 		return;
-	}		
+	}
 	
 		out.println("<script>");
-	   out.println("alert('Sign up Success')");	//성공했다고 출력
-	   out.println("location='loginPage.html'");	//로그인 페이지로 돌아감
+	   out.println("alert('Edit Success')");	//성공했다고 출력
+	   out.println("location='LoginSuccessfulTestPage.jsp'");	//로그인 성공 페이지로 돌아감
 	   out.println("</script>");	       
 
 	
