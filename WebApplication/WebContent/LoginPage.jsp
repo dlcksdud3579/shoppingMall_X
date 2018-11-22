@@ -33,6 +33,7 @@
 			"Customer.id = '" + request.getParameter("idInput") + "'\n" + 
 			"AND Customer.password = '" + request.getParameter("passwordInput") + "';";
 	pstmt = conn.prepareStatement(loginQuery);
+	System.out.println(loginQuery);
 	
 	//예외 처리
 	try{
