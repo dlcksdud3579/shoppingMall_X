@@ -12,8 +12,8 @@
 </head>
 <body>	
 <%
-	Connection conn = DBConn.getMySqlConnection();  // 클래스를 사여
-	out.print("db 연결정보 : " + conn);
+	Connection conn = DBConn.getMySqlConnection(); 
+	out.print("db conn : " + conn);
 		
 	Statement stmt = conn.createStatement();
 	

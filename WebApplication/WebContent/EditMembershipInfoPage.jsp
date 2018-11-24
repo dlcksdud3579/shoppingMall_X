@@ -20,10 +20,10 @@
 	PreparedStatement pstmt;
 	ResultSet rs;
 	
-	//DB와 연결
+
 	conn = DriverManager.getConnection(url,dbUser,dbPassword);
 	
-	//우리가 만든 DB를 USE 하라고 쿼리를 보냄
+
 	String useDatabase = "USE ShoppingMallDB;";	
 	pstmt = conn.prepareStatement(useDatabase);	
 	pstmt.executeQuery();
