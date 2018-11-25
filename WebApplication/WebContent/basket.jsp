@@ -12,69 +12,87 @@
 </head>
 <body>	
 <%
-	Connection conn = DBConn.getMySqlConnection();  
-	out.print("db conn : " + conn);
+
+	PreparedStatement pstmt = null;
+	Connection conn = null;
+	try{
 		
-	Statement stmt = conn.createStatement();
-	
-	
-	ResultSet rs = null;
-	String useDatabase = "USE ShoppingMallDB";	
-	stmt = conn.prepareStatement(useDatabase);	
-	stmt.executeQuery(useDatabase);
-
-	String userId = (String) session.getAttribute("userId");
-	userId = "Ozrcsjorayzjuqx10";
-	String baseketId = "";
-	String itemCode = "";
-	int itemCount=0;
-	
-	rs = stmt.executeQuery("select ShoppingBasketId from ShoppingBasket where CustomerId=\"Ozrcsjorayzjuqx10\"");
-	rs.next();
-	baseketId = (String)rs.getString("ShoppingBasketId");
-	
-	itemCode = (String)request.getParameter("code");
-	itemCount  = Integer.parseInt(request.getParameter("count"));
-	
-	
-	
-	String qr = "insert into BasketContains values (\""+userId+"\",\""+baseketId+"\",\""+itemCode+"\",\""+itemCount+"\")";
-	out.println(qr);
-	stmt.executeQuery(qr);
-	
-	/*
- 	
-	qr = "select Item.ItemName,  Item.Specification, BasketContains.ItemCount,  Item.ItemPrice*ItemCount ";
-	qr+= "from Item, Customer, ShoppingBasket, BasketContains";
-	qr+= "where  Customer.id = \""+userId+"\" and ShoppingBasket.CustomerId = Customer.id ";
-	qr+= "and BasketContains.CustomerId = Customer.id ";
-	qr+= "and BasketContains.ShoppingBasketId = ShoppingBasket.ShoppingBasketId ";
-	qr+=" and BasketContains.ItemCode = Item.ItemCode";
+		conn =DBConn.getMySqlConnection();  
+		//out.println("db conn : " + conn);
 			
- 	rs = stmt.executeQuery(qr);
-
-	out.println("<table border=\"1\">");
-	ResultSetMetaData rsmd = rs.getMetaData();
-	int cnt = rsmd.getColumnCount();
-	int price = 0;
+		
+		ResultSet rs = null;
+		String useDatabase = "USE ShoppingMallDB";	
+		pstmt = conn.prepareStatement(useDatabase);	
+		pstmt.executeQuery();
 	
-	for(int i = 1;i<=cnt;i++)
-		out.println("<th>"+rsmd.getColumnName(i)+"</th>");
+	 	String userId = (String) session.getAttribute("userId");
+		userId = "Ozrcsjorayzjuqx10";
+		String baseketId = "";
+		String itemCode = "";
+		String qr = "";
+		int itemCount=0;
+		pstmt = conn.prepareStatement("select ShoppingBasketId from ShoppingBasket where CustomerId=\""+userId+"\"");
+		rs = pstmt.executeQuery();
+		
+		rs.next();
+		baseketId = (String)rs.getString("ShoppingBasketId");
+		
+		itemCode = (String)request.getParameter("code");
+		itemCount  = Integer.parseInt(request.getParameter("count"));
+		
+		
+		
+		//qr = "insert into BasketContains values(\""+userId+"\", \""+baseketId+"\", \""+itemCode+"\", "+itemCount+")";
+		qr = "insert into BasketContains values(?,?,?,?)";
+		pstmt = conn.prepareStatement(qr);
+		pstmt.setString(1,userId);
+		pstmt.setString(2,baseketId);
+		pstmt.setString(3,itemCode);
+		pstmt.setInt(4,1);
+		pstmt.executeUpdate();
+		
+		
+		qr = "select Item.ItemName,  Item.Specification, BasketContains.ItemCount,  Item.ItemPrice*ItemCount from Item, Customer, ShoppingBasket, BasketContains "
+		+" where  Customer.id = ? and ShoppingBasket.CustomerId = Customer.id "
+		+" and BasketContains.CustomerId = Customer.id "
+		+" and BasketContains.ShoppingBasketId = ShoppingBasket.ShoppingBasketId "
+		+" and BasketContains.ItemCode = Item.ItemCode ";
+		
+	 	pstmt = conn.prepareStatement(qr);
+	 	pstmt.setString(1,userId);
+	 	rs = pstmt.executeQuery();
+	 	
 	
-	while(rs.next()){
-		out.println("<tr>");
+		out.println("<table border=\"1\">");
+		ResultSetMetaData rsmd = rs.getMetaData();
+		int cnt = rsmd.getColumnCount();
+		int price = 0;
+		
 		for(int i = 1;i<=cnt;i++)
-			out.println("<td>"+rs.getString(i)+"</td>");
-		price += Integer.parseInt(rs.getString(cnt));
-		out.println("</tr>");
+			out.println("<th>"+rsmd.getColumnName(i)+"</th>");
+		
+		while(rs.next()){
+			out.println("<tr>");
+			for(int i = 1;i<=cnt;i++)
+				out.println("<td>"+rs.getString(i)+"</td>");
+			price += Integer.parseInt(rs.getString(cnt));
+			out.println("</tr>");
+		}
+		out.println("</table>");
+		
+		out.println("<table border=\"1\">");
+		out.println("<td>"+price+"</td>");
+		out.print("<form action= \"basket.jsp\" method = \"POST\">");
+		out.println("<butten type=\"submit\">구매하기</button>");
+		out.println("</form>");
+		out.println("</table>");
+	}catch(Exception e){
+		e.printStackTrace();
+	}finally{
+		if(pstmt != null) try{pstmt.close();}catch(SQLException sqle){}
+		if(pstmt != null) try{pstmt.close();}catch(SQLException sqle){}
 	}
-	out.println("</table>");
-	
-	out.println("<table border=\"1\">");
-	out.println("<td>"+price+"</td>");
-	out.print("<form action= \"basket.jsp\" method = \"POST\">");
-	out.println("<butten type=\"submit\">구매하기</button>");
-	out.println("</form>");
-	out.println("</table>"); */
+
 %>
 </html>

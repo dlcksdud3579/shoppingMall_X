@@ -23,11 +23,6 @@
 	stmt = conn.prepareStatement(useDatabase);	
 	stmt.executeQuery(useDatabase);
 
-	
-
-	
-	
-	
  	rs = stmt.executeQuery("select distinct MainCategoryName from Category");
 
     
@@ -91,8 +86,10 @@
 	out.println("</tr>");
 	
 	out.print("</table>");
-	
-
+	out.print("<form action= \"Item2.jsp\" method = \"POST\">");
+	out.print("search: <input type = \"text\" name =\"ItemName\">");
+	out.print("<input type = \"submit\" value = \"Submit\"/>");
+	out.print("</form>");
 	
 %>
 
