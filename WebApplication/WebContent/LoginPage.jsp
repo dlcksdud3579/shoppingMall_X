@@ -49,11 +49,19 @@
 	
 	//ID와 Password가 일치하는 Customer가 있다면
 	if(rs.next()){
+		if(request.getParameter("idInput").equals("admin"))
+		{
+			String userId = rs.getString("Id");
+			session.setAttribute("userId",userId);
+			out.println("<script>");
+		   	out.println("location='AdminPage.html'");
+		  	out.println("</script>");
+		}
 		//로그인 성공 페이지로 넘어감
 		String userId = rs.getString("Id");
 		session.setAttribute("userId",userId);
 		out.println("<script>");
-	   	out.println("location='LoginSuccessfulTestPage.jsp'");
+	   	out.println("location='Category.jsp'");
 	  	out.println("</script>");
 	}
 	else{	//ID와 Password가 일치하는 Customer가 없는 경우

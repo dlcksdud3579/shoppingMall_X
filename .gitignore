@@ -131,3 +131,4 @@ _testmain.go
 #*.png
 #*.jpeg
 *.psd
+/.metadata/
