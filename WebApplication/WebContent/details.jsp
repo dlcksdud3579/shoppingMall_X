@@ -11,31 +11,39 @@
 <title>main Page</title>
 </head>
 <body>	
+<h4>detail</h4>
 <%
-	Connection conn = DBConn.getMySqlConnection();
+
+	PreparedStatement pstmt = null;
+	Connection conn = DBConn.getMySqlConnection(); 
 	out.print("db conn : " + conn);
 		
 	Statement stmt = conn.createStatement();
 	
 	
 	ResultSet rs = null;
-	String useDatabase = "USE ShoppingMallDB";	
-	stmt = conn.prepareStatement(useDatabase);	
+	String useDatabase = "USE ShoppingMallDB";
+	stmt = conn.prepareStatement(useDatabase);
 	stmt.executeQuery(useDatabase);
 
- 	rs = stmt.executeQuery("select * from Item where ItemName LIKE \"%"+request.getParameter("ItemName")+"%\"");
+	String qr =  "select ItemName,Specification,PurchasedPrice,ItemCount, PurchasedPrice*ItemCount "
+			+ "from Item,ItemOrder,OrderContains "
+			+ "where ItemOrder.OrderId = ? and ItemOrder.OrderId=OrderContains.OrderId and OrderContains.ItemCode = Item.ItemCode";
+	
+	pstmt = conn.prepareStatement(qr);
+ 	pstmt.setString(1,request.getParameter("OId"));
+ 	rs = pstmt.executeQuery();
+ 	
 	out.println("<table border=\"1\">");
 	ResultSetMetaData rsmd = rs.getMetaData();
-	int cnt = rsmd.getColumnCount()-1;
+	int cnt = rsmd.getColumnCount();
 	for(int i = 1;i<=cnt;i++)
 		out.println("<th>"+rsmd.getColumnName(i)+"</th>");
-	out.println("<th>buy</th>");
 	while(rs.next()){
 		out.println("<tr>");
 		for(int i = 1;i<=cnt;i++)
 			out.println("<td>"+rs.getString(i)+"</td>");
 		String itemCode =  rs.getString(1);
-		out.print("<td><a href=\"buy.jsp?code="+itemCode+"\">buy</a></td>");
 		out.println("</tr>");
 	}
 	out.println("</table>");

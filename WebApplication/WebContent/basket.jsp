@@ -19,7 +19,6 @@
 		
 		conn =DBConn.getMySqlConnection();  
 		//out.println("db conn : " + conn);
-			
 		
 		ResultSet rs = null;
 		String useDatabase = "USE ShoppingMallDB";	
@@ -27,7 +26,8 @@
 		pstmt.executeQuery();
 	
 	 	String userId = (String) session.getAttribute("userId");
-		userId = "Ozrcsjorayzjuqx10";
+	 	userId = "Ozrcsjorayzjuqx10";
+	 	
 		String baseketId = "";
 		String itemCode = "";
 		String qr = "";
@@ -42,15 +42,17 @@
 		itemCount  = Integer.parseInt(request.getParameter("count"));
 		
 		
-		
-		//qr = "insert into BasketContains values(\""+userId+"\", \""+baseketId+"\", \""+itemCode+"\", "+itemCount+")";
-		qr = "insert into BasketContains values(?,?,?,?)";
-		pstmt = conn.prepareStatement(qr);
-		pstmt.setString(1,userId);
-		pstmt.setString(2,baseketId);
-		pstmt.setString(3,itemCode);
-		pstmt.setInt(4,itemCount);  // 아이템의 갯수
-		pstmt.executeUpdate();
+		if(itemCount>0)
+		{
+			//qr = "insert into BasketContains values(\""+userId+"\", \""+baseketId+"\", \""+itemCode+"\", "+itemCount+")";
+			qr = "insert into BasketContains values(?,?,?,?)";
+			pstmt = conn.prepareStatement(qr);
+			pstmt.setString(1,userId);
+			pstmt.setString(2,baseketId);
+			pstmt.setString(3,itemCode);
+			pstmt.setInt(4,itemCount);  // 아이템의 갯수
+			pstmt.executeUpdate();
+		}
 		
 		
 		qr = "select Item.ItemName,  Item.Specification, BasketContains.ItemCount,  Item.ItemPrice*ItemCount from Item, Customer, ShoppingBasket, BasketContains "
@@ -82,17 +84,21 @@
 		out.println("</table>");
 		
 		out.println("<table border=\"1\">");
-		out.println("<td>"+price+"</td>");
+		out.println("<td>sumPrice: "+price+"</td>");
 		out.println("<td>");
 		out.print("<form action= \"result.jsp\" method = \"POST\">");
 		out.println("<input type=\"hidden\" name=BasketId value=\""+baseketId+"\" >");
 		out.println("<input type=\"hidden\" name=price value=\""+price+"\" >");
+		out.print("<input type = \"radio\" name= \"shipper\" value = \"SH166\">7일[2000]");
+		out.print("<input type = \"radio\" name= \"shipper\" value = \"SH167\" checked=\"checked\">2~3일[3000]");
+		out.print("<input type = \"radio\" name= \"shipper\" value = \"SH168\">당일[5000]");
 		out.print("<input type = \"submit\" value = \"submit\">");
 		out.println("</form>");
 		out.println("</table>");
 		out.println("</td>");
 	}catch(Exception e){
 		e.printStackTrace();
+		out.println("이미 바구니에 담으신 제품입니다.");
 	}finally{
 		if(pstmt != null) try{pstmt.close();}catch(SQLException sqle){}
 		if(pstmt != null) try{pstmt.close();}catch(SQLException sqle){}

@@ -11,19 +11,22 @@
 <title>main Page</title>
 </head>
 <body>	
+<h4>recommend Item List</h4>
 <%
-	Connection conn = DBConn.getMySqlConnection();
+
+
+	Connection conn = DBConn.getMySqlConnection(); 
 	out.print("db conn : " + conn);
 		
 	Statement stmt = conn.createStatement();
 	
 	
 	ResultSet rs = null;
-	String useDatabase = "USE ShoppingMallDB";	
-	stmt = conn.prepareStatement(useDatabase);	
+	String useDatabase = "USE ShoppingMallDB";
+	stmt = conn.prepareStatement(useDatabase);
 	stmt.executeQuery(useDatabase);
 
- 	rs = stmt.executeQuery("select * from Item where ItemName LIKE \"%"+request.getParameter("ItemName")+"%\"");
+	rs = stmt.executeQuery("select * from Item order by rand() limit 4");
 	out.println("<table border=\"1\">");
 	ResultSetMetaData rsmd = rs.getMetaData();
 	int cnt = rsmd.getColumnCount()-1;

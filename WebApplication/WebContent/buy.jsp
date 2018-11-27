@@ -41,7 +41,7 @@
 	
 	out.print("<td>");
 	out.print("<form action= \"basket.jsp\" method = \"POST\">");
-	out.print("<input type = \"text\" name = \"count\">");
+	out.print("count:<input type = \"text\" name = \"count\">");
 	out.print("<button type=\"submit\" value=\""+request.getParameter("code")+"\" name=\"code\">장바구니</button>");
 	out.print("</form>");
 	out.print("</td>");

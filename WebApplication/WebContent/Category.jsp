@@ -90,6 +90,7 @@
 	out.print("search: <input type = \"text\" name =\"ItemName\">");
 	out.print("<input type = \"submit\" value = \"Submit\"/>");
 	out.print("</form>");
+	out.println("<a href=\"history.jsp\">go purchase history</a>");
 	
 %>
 

@@ -32,8 +32,7 @@
 	pstmt = conn.prepareStatement(useDatabase);	
 	pstmt.executeQuery();
 	
-	 String userId = (String) session.getAttribute("userId");
-
+	String userId = (String) session.getAttribute("userId");
 	userId = "Ozrcsjorayzjuqx10";
 	
 	
@@ -46,12 +45,12 @@
 	pstmt = conn.prepareStatement("insert into ItemOrder values(?,?,?,?,?,?,?)");
 	 	
 	pstmt.setString(1,OrderId); // 오더아이디
-	pstmt.setInt(2, Integer.parseInt(request.getParameter("price"))); // 섬프라이스 
-	pstmt.setString(3,"2018-10-28"); // 데이트
+	pstmt.setInt(2, 0); // 섬프라이스 
+	pstmt.setDate(3,sqlDate); // 데이트
 	pstmt.setString(4,"Waiting for payment"); // 오더 스테이터스
 	pstmt.setString(5,userId); // 구매 고객
 	pstmt.setString(6,"SL808"); // 고객의집
-	pstmt.setString(7,"SH166"); // 배달해줄사람
+	pstmt.setString(7,(String)request.getParameter("shipper")); // 배달해줄사람
 	//out.println(pstmt.toString());
 	pstmt.executeUpdate();
 	
@@ -76,14 +75,14 @@
 	int cnt = rsmd.getColumnCount();
 	int price = 0;
 		
-	for(int i = 1;i<=cnt;i++)
+	for(int i = 2;i<=cnt;i++)
 		out.println("<th>"+rsmd.getColumnName(i)+"</th>");
-		
+		out.println("<th>결과</th>");
 	while(rs.next()){
 		out.println("<tr>");
 		for(int i = 2;i<=cnt;i++)
 			out.println("<td>"+rs.getString(i)+"</td>");
-		price += Integer.parseInt(rs.getString(cnt));
+		
 		
 		
 		// 아이템의 갯수를 줄인다.솔트 카운터를 올린다.
@@ -98,7 +97,9 @@
 		 	
 		if(rs2.getInt("Stock")> count)
 		{
-			
+		price += Integer.parseInt(rs.getString(cnt));  // 구매 된거만 추가
+		
+		
 		pstmt = conn.prepareStatement("update Item set Stock = Stock - ?,SoldCount = SoldCount + ?  where Itemcode = ?");
 		pstmt.setInt(1,count);
 		pstmt.setInt(2,count);
@@ -122,19 +123,35 @@
 		 {
 		 	out.println("<td>재고부족</td>");
 		 }
-			
 		out.println("</tr>");
 	}
+	if(price>0)
+	{
+		pstmt = conn.prepareStatement("select * from shipper where ShipperId=?");
+		pstmt.setString(1,(String)request.getParameter("shipper"));
+		rs = pstmt.executeQuery();
+		while(rs.next()){
+			out.println("<td>배송:</td>");
+			for(int i = 2;i<=4;i++)
+				out.println("<td>"+rs.getString(i)+"</td>");
+			out.println("<td>배송준비중</td>");
+			price+=rs.getInt(4);
+		}
+		
+		pstmt = conn.prepareStatement("update ItemOrder set  SumPrice=? where OrderId = ?");
+		pstmt.setInt(1,price);
+		pstmt.setString(2,OrderId);
+		pstmt.executeUpdate();
+	}
 	out.println("</table>");
-	
 	out.println("<table border=\"1\">");
-	out.println("<td>"+price+"</td>");
+	out.println("<td>SumPrice:"+price+"</td>");
 	out.println("<td>");
 	out.print("<form action= \"Category.jsp\" method = \"POST\">");
-	out.print("<input type = \"submit\" value = \"submit\">");
+	out.print("<input type = \"submit\" value = \"확인\">");
 	out.println("</form>");
 	out.println("</table>");
 	out.println("</td>");
-		
+	
 %>
 </html>
