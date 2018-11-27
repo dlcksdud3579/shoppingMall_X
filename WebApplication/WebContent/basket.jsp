@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-<%@page import="java.text.*,java.sql.*" %>  
+<%@page import="java.text.*,java.sql.*"%>  
 <%@page import="test.DBConn" %>  
 
    
@@ -49,7 +49,7 @@
 		pstmt.setString(1,userId);
 		pstmt.setString(2,baseketId);
 		pstmt.setString(3,itemCode);
-		pstmt.setInt(4,1);
+		pstmt.setInt(4,itemCount);  // 아이템의 갯수
 		pstmt.executeUpdate();
 		
 		
@@ -83,10 +83,14 @@
 		
 		out.println("<table border=\"1\">");
 		out.println("<td>"+price+"</td>");
-		out.print("<form action= \"basket.jsp\" method = \"POST\">");
-		out.println("<butten type=\"submit\">구매하기</button>");
+		out.println("<td>");
+		out.print("<form action= \"result.jsp\" method = \"POST\">");
+		out.println("<input type=\"hidden\" name=BasketId value=\""+baseketId+"\" >");
+		out.println("<input type=\"hidden\" name=price value=\""+price+"\" >");
+		out.print("<input type = \"submit\" value = \"submit\">");
 		out.println("</form>");
 		out.println("</table>");
+		out.println("</td>");
 	}catch(Exception e){
 		e.printStackTrace();
 	}finally{
