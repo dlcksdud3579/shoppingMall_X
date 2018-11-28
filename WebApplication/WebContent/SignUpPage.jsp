@@ -58,7 +58,8 @@
 	String type = request.getParameter("TypeSelect");
 	if(type.compareTo("NULL") != 0)
 		type = "'" + type + "'";
-	//로그인 쿼리
+	
+	//회원 추가
 	String SignUpQuery = "INSERT INTO Customer VALUES(" + Id + ","+Password +"," + HomeAddress + "," + PhoneNumber + "," + Sex + ","+ name +"," + age + "," +Job +"," + type + ");";
 	pstmt = conn.prepareStatement(SignUpQuery);
 	System.out.println("query : " + SignUpQuery);
@@ -73,7 +74,25 @@
        out.println("location='SignupPage.html'");	//회원가입 페이지로 돌아감
        out.println("</script>");       
 		return;
-	}		
+	}
+	
+	//장바구니 추가
+	String createBasketQuery = "INSERT INTO ShoppingBasket VALUES(" + "\"basket\"," + "0," + Id + ");";
+	
+	pstmt = conn.prepareStatement(createBasketQuery);
+	System.out.println("query : " + createBasketQuery);
+	
+	//예외 처리
+	try{
+		pstmt.executeUpdate();
+	}	catch(Exception e){
+		//회원가입 페이지러 돌아감
+       out.println("<script>");
+       out.println("alert('basket making Failed')" );	//실패했다고 출력
+       out.println("location='SignupPage.html'");	//회원가입 페이지로 돌아감
+       out.println("</script>");       
+		return;
+	}
 	
 		out.println("<script>");
 	   out.println("alert('Sign up Success')");	//성공했다고 출력
