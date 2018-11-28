@@ -39,9 +39,10 @@
 			out.println("<td>"+rs.getString(i)+"</td>");
 		String itemCode =  rs.getString(1);
 	%>
-		<td><input type="text" <%="id=addStock" + count %>><br></td>"
-		<td><a href=<%="AddStock.jsp?code="+itemCode+"&addStock=" + request.getParameter("addStock" + count) %> >add</a></td>" 
-		
+	   <form action = "AddStock.jsp" method = "POST">
+		<td><input type="text" <%="name=addStock_" + rs.getString(1) %>><br></td>"
+		<td> <input type="submit" value="Add" name = "AddStockButton" ></td>" 
+    </form>		
 		<%
 		out.println("</tr>");
 		count++;

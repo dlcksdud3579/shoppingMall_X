@@ -15,18 +15,37 @@
 	Connection conn = DBConn.getMySqlConnection();  
 	out.print("db conn : " + conn);
 		
-	Statement stmt = conn.createStatement();
-	
-	
+	Statement stmt = conn.createStatement();	
 	ResultSet rs = null;
 	String useDatabase = "USE ShoppingMallDB";	
 	stmt = conn.prepareStatement(useDatabase);	
 	stmt.executeQuery(useDatabase);
-	String updateQuery = "UPDATE Item SET Stock = Stock + " +request.getParameter("addStock") + " WHERE ItemCode = \"" + request.getParameter("code") + "\"";
-	out.println(updateQuery);
-	stmt.executeUpdate(updateQuery);
-
-
 	
+	String selectAllNames = "SELECT ItemCode FROM Item;";
+	rs = stmt.executeQuery(selectAllNames);
+	
+	String inputSource = "";
+	String itemCode = null;
+	while(rs.next()){
+		inputSource = "addStock_" + rs.getString(1);
+		System.out.println(inputSource);
+		if(request.getParameter(inputSource)!=null){
+			itemCode = rs.getString(1);
+			break;		
+		}
+	}
+	
+	if(itemCode == null)
+	{
+		out.println("<script>");
+		out.println("alert('Please, input amount you want to add')");	//경고 메시지 출력
+		out.println("location='AddStockPage.jsp'");	
+		out.println("</script>");	  
+	}
+	
+	
+	String updateQuery = "UPDATE Item SET Stock = Stock + " +request.getParameter(inputSource) + " WHERE ItemCode = \"" + itemCode + "\"";
+	out.println(updateQuery);
+	stmt.executeUpdate(updateQuery);	
 %>
 </html>
