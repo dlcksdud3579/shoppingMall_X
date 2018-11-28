@@ -54,7 +54,7 @@
 			String userId = rs.getString("Id");
 			session.setAttribute("userId",userId);
 			out.println("<script>");
-		   	out.println("location='AdminPage.html'");
+		   	out.println("location='AdminManagePage.html'");
 		  	out.println("</script>");
 		}
 		//로그인 성공 페이지로 넘어감
