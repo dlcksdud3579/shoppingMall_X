@@ -25,9 +25,8 @@
 		pstmt = conn.prepareStatement(useDatabase);	
 		pstmt.executeQuery();
 	
-	 	String userId = (String) session.getAttribute("userId");
-	 	userId = "Ozrcsjorayzjuqx10";
-	 	
+	 	String userId = (String)session.getAttribute("userId");
+		 	
 		String baseketId = "";
 		String itemCode = "";
 		String qr = "";
@@ -38,13 +37,11 @@
 		rs.next();
 		baseketId = (String)rs.getString("ShoppingBasketId");
 		
-		itemCode = (String)request.getParameter("code");
 		itemCount  = Integer.parseInt(request.getParameter("count"));
-		
 		
 		if(itemCount>0)
 		{
-			//qr = "insert into BasketContains values(\""+userId+"\", \""+baseketId+"\", \""+itemCode+"\", "+itemCount+")";
+			itemCode = (String)request.getParameter("code");
 			qr = "insert into BasketContains values(?,?,?,?)";
 			pstmt = conn.prepareStatement(qr);
 			pstmt.setString(1,userId);
@@ -53,9 +50,28 @@
 			pstmt.setInt(4,itemCount);  // 아이템의 갯수
 			pstmt.executeUpdate();
 		}
+		else if(itemCount==-9999)
+		{
+			itemCode = (String)request.getParameter("code");
+			System.out.println(itemCode);
+			if(itemCode.equals("AllDelete"))
+			{
+				qr = "delete from BasketContains where ShoppingBasketId=?";
+				pstmt = conn.prepareStatement(qr);
+				pstmt.setString(1,baseketId);
+				pstmt.executeUpdate();
+			}
+			else
+			{
+				qr = "delete from BasketContains where ItemCode=?";
+				pstmt = conn.prepareStatement(qr);
+				pstmt.setString(1,itemCode);
+				pstmt.executeUpdate();
+			}
+		}
 		
 		
-		qr = "select Item.ItemName,  Item.Specification, BasketContains.ItemCount,  Item.ItemPrice*ItemCount from Item, Customer, ShoppingBasket, BasketContains "
+		qr = "select Item.Itemcode, Item.ItemName,  Item.Specification, BasketContains.ItemCount,  Item.ItemPrice*ItemCount from Item, Customer, ShoppingBasket, BasketContains "
 		+" where  Customer.id = ? and ShoppingBasket.CustomerId = Customer.id "
 		+" and BasketContains.CustomerId = Customer.id "
 		+" and BasketContains.ShoppingBasketId = ShoppingBasket.ShoppingBasketId "
@@ -71,13 +87,20 @@
 		int cnt = rsmd.getColumnCount();
 		int price = 0;
 		
-		for(int i = 1;i<=cnt;i++)
+		for(int i = 2;i<=cnt;i++)
 			out.println("<th>"+rsmd.getColumnName(i)+"</th>");
-		
+		out.print("<th><form action= \"basket.jsp\" method = \"POST\">");
+		out.print("<input type=\"hidden\" name=code value=\"AllDelete\">");
+		out.print("<input type=\"hidden\" name=count value=\"-9999\">");
+		out.print("<input type = \"submit\" value = \"AllDelete\"></form></th>");
 		while(rs.next()){
 			out.println("<tr>");
-			for(int i = 1;i<=cnt;i++)
+			for(int i = 2;i<=cnt;i++)
 				out.println("<td>"+rs.getString(i)+"</td>");
+ 			out.print("<th><form action= \"basket.jsp\" method = \"POST\">");
+			out.print("<input type=\"hidden\" name=code value=\""+rs.getString(1)+"\">");
+			out.print("<input type=\"hidden\" name=count value=\"-9999\">");
+			out.print("<input type = \"submit\" value = \"delete\"></form></th>");
 			price += Integer.parseInt(rs.getString(cnt));
 			out.println("</tr>");
 		}
@@ -96,6 +119,7 @@
 		out.println("</form>");
 		out.println("</table>");
 		out.println("</td>");
+		out.println("<a href=\"Category.jsp\">go Category</a>");
 	}catch(Exception e){
 		e.printStackTrace();
 		out.println("이미 바구니에 담으신 제품입니다.");

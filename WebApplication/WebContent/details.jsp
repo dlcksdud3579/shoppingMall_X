@@ -47,6 +47,30 @@
 		out.println("</tr>");
 	}
 	out.println("</table>");
+	
+	qr =  "select ShipperName, ShippingFee from ItemOrder,shipper where ItemOrder.OrderId = ? and ItemOrder.ShipperId = shipper.ShipperId";
+	
+	pstmt = conn.prepareStatement(qr);
+ 	pstmt.setString(1,request.getParameter("OId"));
+ 	rs = pstmt.executeQuery();
+ 	
+	out.println("<table border=\"1\">");
+	rsmd = rs.getMetaData();
+	cnt = rsmd.getColumnCount();
+	for(int i = 1;i<=cnt;i++)
+		out.println("<th>"+rsmd.getColumnName(i)+"</th>");
+	while(rs.next()){
+		out.println("<tr>");
+		for(int i = 1;i<=cnt;i++)
+			out.println("<td>"+rs.getString(i)+"</td>");
+		String itemCode =  rs.getString(1);
+		out.println("</tr>");
+	}
+	out.println("</table>");
+	
+	
+	
+	
 	out.println("<a href=\"Category.jsp\">go Category</a>");
 
 	

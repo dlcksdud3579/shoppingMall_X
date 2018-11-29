@@ -26,18 +26,18 @@
 		pstmt.executeQuery();
 	
 	 	String userId = (String) session.getAttribute("userId");
-	 	userId = "Ozrcsjorayzjuqx10";
 	 	
 		String baseketId = "";
 		String itemCode = "";
 		String qr = "";
 
-		qr = "select OrderId, OrderDate,OrderStatus,ShipperName, SumPrice from ItemOrder,Shipper where ItemOrder.ShipperId=Shipper.ShipperId  order by OrderDate DESC";
+		qr = "select OrderId, OrderDate,OrderStatus,ShipperName, SumPrice from ItemOrder,Shipper where PurchasedCustomerId = ? and ItemOrder.ShipperId=Shipper.ShipperId  order by OrderDate DESC";
 	 	pstmt = conn.prepareStatement(qr);
+	 	pstmt.setString(1,userId);
 	 	rs = pstmt.executeQuery();
 	
 		out.println("<table border=\"1\">");
-		ResultSetMetaData rsmd = rs.getMetaData();
+		ResultSetMetaData rsmd = rs.getMetaData(); 
 		int cnt = rsmd.getColumnCount();
 		
 		for(int i = 2;i<=cnt;i++)

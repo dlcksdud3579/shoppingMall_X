@@ -91,6 +91,7 @@
 	out.print("<input type = \"submit\" value = \"Submit\"/>");
 	out.print("</form>");
 	out.println("<a href=\"history.jsp\">go purchase history</a>");
+	out.println("<a href=\"basket.jsp?count=0\">go basket</a>");
 	
 %>
 

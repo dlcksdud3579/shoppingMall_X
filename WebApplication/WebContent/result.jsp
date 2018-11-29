@@ -33,7 +33,7 @@
 	pstmt.executeQuery();
 	
 	String userId = (String) session.getAttribute("userId");
-	userId = "Ozrcsjorayzjuqx10";
+
 	
 	
 	// 아이템 오더를 새로 추가해준다.
@@ -59,7 +59,7 @@
 	String baseketId = (String)request.getParameter("BasketId");;
 	String qr = "";
 	
-	qr = "select Item.ItemCode, Item.ItemName,  Item.Specification, BasketContains.ItemCount, Item.ItemPrice*ItemCount from Item, Customer, ShoppingBasket, BasketContains "
+	qr = "select Item.ItemCode, Item.ItemName,  Item.Specification, BasketContains.ItemCount, Item.ItemPrice*BasketContains.ItemCount from Item, Customer, ShoppingBasket, BasketContains "
 	+" where  Customer.id = ? and ShoppingBasket.CustomerId = Customer.id "
 	+" and BasketContains.CustomerId = Customer.id "
 	+" and BasketContains.ShoppingBasketId = ShoppingBasket.ShoppingBasketId "
@@ -97,7 +97,7 @@
 		 	
 		if(rs2.getInt("Stock")> count)
 		{
-		price += Integer.parseInt(rs.getString(cnt));  // 구매 된거만 추가
+		price += Integer.parseInt(rs.getString(cnt)) * count;  // 구매 된거만 추가
 		
 		
 		pstmt = conn.prepareStatement("update Item set Stock = Stock - ?,SoldCount = SoldCount + ?  where Itemcode = ?");
@@ -106,7 +106,7 @@
 		pstmt.setString(3,itemCode);
 		pstmt.executeUpdate();
 			
-		pstmt = conn.prepareStatement("delete from  BasketContains where Itemcode = ?");
+		pstmt = conn.prepareStatement("delete from BasketContains where Itemcode = ?");
 		pstmt.setString(1,itemCode);
 		pstmt.executeUpdate();			
 			
@@ -125,25 +125,40 @@
 		 }
 		out.println("</tr>");
 	}
+	out.println("</table>");
+	out.println("배송정보:");
+	out.println("<table border=\"1\">");
 	if(price>0)
 	{
 		pstmt = conn.prepareStatement("select * from shipper where ShipperId=?");
 		pstmt.setString(1,(String)request.getParameter("shipper"));
 		rs = pstmt.executeQuery();
+		rsmd = rs.getMetaData();
+		cnt = rsmd.getColumnCount();
+		for(int i = 2;i<=cnt;i++)
+			out.println("<th>"+rsmd.getColumnName(i)+"</th>");
+			out.println("<th>결과</th>");
 		while(rs.next()){
-			out.println("<td>배송:</td>");
-			for(int i = 2;i<=4;i++)
+			out.println("<tr>");
+			for(int i = 2;i<=cnt;i++)
 				out.println("<td>"+rs.getString(i)+"</td>");
 			out.println("<td>배송준비중</td>");
 			price+=rs.getInt(4);
 		}
-		
 		pstmt = conn.prepareStatement("update ItemOrder set  SumPrice=? where OrderId = ?");
 		pstmt.setInt(1,price);
 		pstmt.setString(2,OrderId);
 		pstmt.executeUpdate();
 	}
+	else
+	{
+		pstmt = conn.prepareStatement("delete from ItemOrder where ItemOrder.OrderId = ?");
+		pstmt.setString(1,OrderId); // 오더아이디
+		pstmt.executeUpdate();
+		out.println("<th>배송할 물건이 없어서 배송 할수 없습니다.</th>");
+	}
 	out.println("</table>");
+	
 	out.println("<table border=\"1\">");
 	out.println("<td>SumPrice:"+price+"</td>");
 	out.println("<td>");
