@@ -97,7 +97,7 @@
 		 	
 		if(rs2.getInt("Stock")> count)
 		{
-		price += Integer.parseInt(rs.getString(cnt)) * count;  // 구매 된거만 추가
+		price += Integer.parseInt(rs.getString(cnt));  // 구매 된거만 추가
 		
 		
 		pstmt = conn.prepareStatement("update Item set Stock = Stock - ?,SoldCount = SoldCount + ?  where Itemcode = ?");
@@ -130,7 +130,7 @@
 	out.println("<table border=\"1\">");
 	if(price>0)
 	{
-		pstmt = conn.prepareStatement("select * from shipper where ShipperId=?");
+		pstmt = conn.prepareStatement("select * from Shipper where ShipperId=?");
 		pstmt.setString(1,(String)request.getParameter("shipper"));
 		rs = pstmt.executeQuery();
 		rsmd = rs.getMetaData();

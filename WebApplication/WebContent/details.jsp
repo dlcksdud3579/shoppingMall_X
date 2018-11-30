@@ -26,7 +26,7 @@
 	stmt = conn.prepareStatement(useDatabase);
 	stmt.executeQuery(useDatabase);
 
-	String qr =  "select ItemName,Specification,PurchasedPrice,ItemCount, PurchasedPrice*ItemCount "
+	String qr =  "select ItemName,Specification, ItemCount ,PurchasedPrice "
 			+ "from Item,ItemOrder,OrderContains "
 			+ "where ItemOrder.OrderId = ? and ItemOrder.OrderId=OrderContains.OrderId and OrderContains.ItemCode = Item.ItemCode";
 	
@@ -48,7 +48,7 @@
 	}
 	out.println("</table>");
 	
-	qr =  "select ShipperName, ShippingFee from ItemOrder,shipper where ItemOrder.OrderId = ? and ItemOrder.ShipperId = shipper.ShipperId";
+	qr =  "select ShipperName, ShippingFee from ItemOrder,shipper where ItemOrder.OrderId = ? and ItemOrder.ShipperId = Shipper.ShipperId";
 	
 	pstmt = conn.prepareStatement(qr);
  	pstmt.setString(1,request.getParameter("OId"));
