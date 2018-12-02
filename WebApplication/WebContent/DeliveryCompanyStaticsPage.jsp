@@ -22,6 +22,10 @@
 	String useDatabase = "USE ShoppingMallDB";	
 	stmt = conn.prepareStatement(useDatabase);	
 	stmt.executeQuery(useDatabase);
+	
+	String readCommitted = "SET TRANSACTION ISOLATION LEVEL READ COMMITTED;";
+	String commit = "COMMIT";
+	stmt.executeQuery(readCommitted);
 
 	out.println("<table border=\"1\">");
 	out.println("<th>ShipperName</th>");
@@ -54,6 +58,8 @@
 	
 	
 	out.println("</table>");
+	
+	stmt.executeQuery(commit);
 	
 	%>
 </body>
