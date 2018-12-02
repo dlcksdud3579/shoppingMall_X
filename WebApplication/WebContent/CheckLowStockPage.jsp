@@ -13,7 +13,7 @@
 <body>	
 <%
 	Connection conn = DBConn.getMySqlConnection(); 
-	out.print("db conn : " + conn);
+	//out.print("db conn : " + conn);
 		
 	Statement stmt = conn.createStatement();
 	
@@ -22,6 +22,10 @@
 	String useDatabase = "USE ShoppingMallDB";	
 	stmt = conn.prepareStatement(useDatabase);	
 	stmt.executeQuery(useDatabase);
+	
+	String readCommitted = "SET TRANSACTION ISOLATION LEVEL READ COMMITTED;";
+	String commit = "COMMIT";
+	stmt.executeQuery(readCommitted);
 
  	rs = stmt.executeQuery("select * from Item where Stock < 20");
 
@@ -38,6 +42,7 @@
 		out.println("</tr>");
 	}
 	out.println("</table>");
+	stmt.executeQuery(commit);
 
 	
 %>
