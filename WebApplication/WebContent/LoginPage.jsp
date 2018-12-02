@@ -28,6 +28,10 @@
 	pstmt = conn.prepareStatement(useDatabase);	
 	pstmt.executeQuery();
 	
+	String readCommitted = "SET TRANSACTION ISOLATION LEVEL READ COMMITTED;";
+	String commit = "COMMIT";
+	pstmt.executeQuery(readCommitted);
+	
 	//로그인 쿼리
 	String loginQuery = "SELECT * FROM Customer WHERE\n" + 
 			"Customer.id = '" + request.getParameter("idInput") + "'\n" + 
@@ -70,6 +74,8 @@
 	   out.println("location='loginPage.html'");	//로그인 페이지로 돌아감
 	   out.println("</script>");	       
 	}
+	
+	pstmt.executeQuery(commit);
 
 	
 	
