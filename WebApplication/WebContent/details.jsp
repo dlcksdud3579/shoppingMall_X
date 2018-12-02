@@ -25,8 +25,6 @@
 	String useDatabase = "USE ShoppingMallDB";
 	stmt = conn.prepareStatement(useDatabase);
 	stmt.executeQuery(useDatabase);
-	
-	 //"select ItemName,Specification, ItemCount ,PurchasedPrice from Item,ItemOrder,OrderContains where ItemOrder.OrderId = IO-4E1Um06252Bz7FV25e8t and ItemOrder.OrderId=OrderContains.OrderId and OrderContains.ItemCode = Item.ItemCode";
 
 	String qr =  "select ItemName,Specification, ItemCount ,PurchasedPrice "
 			+ "from Item,ItemOrder,OrderContains "
@@ -55,7 +53,6 @@
 	
 	pstmt = conn.prepareStatement(qr);
  	pstmt.setString(1,request.getParameter("OId"));
- 	System.out.println(pstmt.toString());
  	rs = pstmt.executeQuery();
  	
 	out.println("<table border=\"1\">");
