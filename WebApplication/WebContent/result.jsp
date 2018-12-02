@@ -12,6 +12,11 @@
 </head>
 <body>
 <%
+
+	String readCommitted = "SET TRANSACTION ISOLATION LEVEL READ COMMITTED;";
+	String commit = "COMMIT";
+	
+	
 	/*
 	구현해야할기능 
 	1. 바스켓컨테인 모드 지우기
@@ -31,6 +36,7 @@
 	String useDatabase = "USE ShoppingMallDB";	
 	pstmt = conn.prepareStatement(useDatabase);	
 	pstmt.executeQuery();
+	pstmt.executeQuery(readCommitted);
 	
 	String userId = (String) session.getAttribute("userId");
 
@@ -167,6 +173,7 @@
 	out.println("</form>");
 	out.println("</table>");
 	out.println("</td>");
+	pstmt.executeQuery(commit);
 	
 %>
 </html>

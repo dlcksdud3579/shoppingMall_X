@@ -13,6 +13,9 @@
 <body>	
 <h4>detail</h4>
 <%
+	
+	String readCommitted = "SET TRANSACTION ISOLATION LEVEL READ COMMITTED;";
+	String commit = "COMMIT";
 
 	PreparedStatement pstmt = null;
 	Connection conn = DBConn.getMySqlConnection(); 
@@ -25,12 +28,14 @@
 	String useDatabase = "USE ShoppingMallDB";
 	stmt = conn.prepareStatement(useDatabase);
 	stmt.executeQuery(useDatabase);
+	
 
 	String qr =  "select ItemName,Specification, ItemCount ,PurchasedPrice "
 			+ "from Item,ItemOrder,OrderContains "
 			+ "where ItemOrder.OrderId = ? and ItemOrder.OrderId=OrderContains.OrderId and OrderContains.ItemCode = Item.ItemCode";
 	
 	pstmt = conn.prepareStatement(qr);
+	pstmt.executeQuery(readCommitted);
 	
  	pstmt.setString(1,request.getParameter("OId"));
  	rs = pstmt.executeQuery();
@@ -68,11 +73,8 @@
 		out.println("</tr>");
 	}
 	out.println("</table>");
-	
-	
-	
-	
 	out.println("<a href=\"Category.jsp\">go Category</a>");
+	pstmt.executeQuery(commit);
 
 	
 %>

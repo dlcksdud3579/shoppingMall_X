@@ -15,6 +15,8 @@
 
 	PreparedStatement pstmt = null;
 	Connection conn = null;
+	String readCommitted = "SET TRANSACTION ISOLATION LEVEL READ COMMITTED;";
+	String commit = "COMMIT";
 	try{
 		
 		conn =DBConn.getMySqlConnection();  
@@ -24,6 +26,7 @@
 		String useDatabase = "USE ShoppingMallDB";	
 		pstmt = conn.prepareStatement(useDatabase);	
 		pstmt.executeQuery();
+		pstmt.executeQuery(readCommitted);
 	
 	 	String userId = (String) session.getAttribute("userId");
 	 	
@@ -56,9 +59,12 @@
 	}catch(Exception e){
 		e.printStackTrace();
 		out.println(e.toString());
+		out.println("<br><a href=\"Category.jsp\">go Category</a>");
 	}finally{
+		pstmt.executeQuery(commit);
 		if(pstmt != null) try{pstmt.close();}catch(SQLException sqle){}
 		if(pstmt != null) try{pstmt.close();}catch(SQLException sqle){}
+		
 	}
 
 %>

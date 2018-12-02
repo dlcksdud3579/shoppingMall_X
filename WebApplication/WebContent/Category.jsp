@@ -12,6 +12,8 @@
 </head>
 <body>	
 <%
+	String readCommitted = "SET TRANSACTION ISOLATION LEVEL READ COMMITTED;";
+	String commit = "COMMIT";
 	Connection conn = DBConn.getMySqlConnection(); 
 	//out.print("db 연결정보 : " + conn);
 		
@@ -22,6 +24,8 @@
 	String useDatabase = "USE ShoppingMallDB";	
 	stmt = conn.prepareStatement(useDatabase);	
 	stmt.executeQuery(useDatabase);
+	
+	stmt.executeQuery(readCommitted);
 
  	rs = stmt.executeQuery("select distinct MainCategoryName from Category");
 
@@ -94,6 +98,7 @@
 	out.println("<a href=\"basket.jsp?count=0\">go basket</a>");
 	out.println("<a href=\"EditMembershipInfoPage.html?count=0\">Edit UserInfo</a>");
 	
+	stmt.executeQuery(commit);
 %>
 
 

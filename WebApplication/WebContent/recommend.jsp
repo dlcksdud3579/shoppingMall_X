@@ -14,7 +14,6 @@
 <h4>recommend Item List</h4>
 <%
 
-
 	Connection conn = DBConn.getMySqlConnection(); 
 	//out.print("db conn : " + conn);
 		

@@ -12,6 +12,9 @@
 </head>
 <body>	
 <%
+	String readCommitted = "SET TRANSACTION ISOLATION LEVEL READ COMMITTED;";
+	String commit = "COMMIT";
+	
 	Connection conn = DBConn.getMySqlConnection();
 	out.print("db conn : " + conn);
 		
@@ -22,6 +25,7 @@
 	String useDatabase = "USE ShoppingMallDB";	
 	stmt = conn.prepareStatement(useDatabase);	
 	stmt.executeQuery(useDatabase);
+	stmt.executeQuery(readCommitted);
 
  	rs = stmt.executeQuery("select * from Item where ItemName LIKE \"%"+request.getParameter("ItemName")+"%\"");
 	out.println("<table border=\"1\">");
@@ -40,6 +44,7 @@
 	}
 	out.println("</table>");
 	out.println("<a href=\"Category.jsp\">go Category</a>");
+	stmt.executeQuery(commit);
 
 	
 %>
