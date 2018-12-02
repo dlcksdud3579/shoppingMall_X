@@ -28,6 +28,10 @@
 	pstmt = conn.prepareStatement(useDatabase);	
 	pstmt.executeQuery();
 	
+	String readCommitted = "SET TRANSACTION ISOLATION LEVEL READ COMMITTED;";
+	String commit = "COMMIT";
+	pstmt.executeQuery(readCommitted);
+	
 	String Id = (String) session.getAttribute("userId");
 	Id = "'" + Id + "'";
 	String Password = request.getParameter("passwordInput");
@@ -63,6 +67,8 @@
 	pstmt = conn.prepareStatement(updateQuery);
 	System.out.println("query : " + updateQuery);
 	
+	pstmt.executeQuery(commit);
+	
 	//예외 처리
 	try{
 		pstmt.executeUpdate();
@@ -77,7 +83,7 @@
 	
 		out.println("<script>");
 	   out.println("alert('Edit Success')");	//성공했다고 출력
-	   out.println("location='LoginSuccessfulTestPage.jsp'");	//로그인 성공 페이지로 돌아감
+	   out.println("location='Category.jsp'");	//로그인 성공 페이지로 돌아감
 	   out.println("</script>");	       
 
 	

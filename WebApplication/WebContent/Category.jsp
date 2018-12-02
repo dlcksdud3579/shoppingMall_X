@@ -92,6 +92,7 @@
 	out.print("</form>");
 	out.println("<a href=\"history.jsp\">go purchase history</a>");
 	out.println("<a href=\"basket.jsp?count=0\">go basket</a>");
+	out.println("<a href=\"EditMembershipInfoPage.html?count=0\">Edit UserInfo</a>");
 	
 %>
 
