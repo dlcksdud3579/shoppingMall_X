@@ -13,7 +13,7 @@
 <body>	
 <%
 	Connection conn = DBConn.getMySqlConnection(); 
-	out.print("db conn : " + conn);
+	//out.print("db conn : " + conn);
 		
 	Statement stmt = conn.createStatement();
 	
@@ -23,6 +23,9 @@
 	stmt.executeQuery(useDatabase);
 	
 	out.println("<table border=\"1\">");
+	String readCommitted = "SET TRANSACTION ISOLATION LEVEL READ COMMITTED;";
+	String commit = "COMMIT";
+	stmt.executeQuery(readCommitted);
 	
 	String year = request.getParameter("yearInput");	
 	if(year.equals(""))
@@ -70,7 +73,7 @@
 	out.println("</tr>");	
 	
 	out.println("</table>");
- 	
+	stmt.executeQuery(commit);
 
 %>
 </body>
