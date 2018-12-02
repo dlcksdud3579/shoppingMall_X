@@ -25,6 +25,10 @@
 	String useDatabase = "USE ShoppingMallDB";
 	stmt = conn.prepareStatement(useDatabase);
 	stmt.executeQuery(useDatabase);
+	
+	String readCommitted = "SET TRANSACTION ISOLATION LEVEL READ COMMITTED;";
+	String commit = "COMMIT";
+	stmt.executeQuery(readCommitted);
 
 	rs = stmt.executeQuery("select * from Item order by rand() limit 4");
 	out.println("<table border=\"1\">");
@@ -43,6 +47,7 @@
 	}
 	out.println("</table>");
 	out.println("<a href=\"Category.jsp\">go Category</a>");
+	stmt.executeQuery(commit);
 
 	
 %>
