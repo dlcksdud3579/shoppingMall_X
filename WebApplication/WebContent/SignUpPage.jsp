@@ -28,6 +28,10 @@
 	pstmt = conn.prepareStatement(useDatabase);	
 	pstmt.executeQuery();
 	
+	String serializableCommitted = "SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;";
+	String commit = "COMMIT";
+	pstmt.executeQuery(serializableCommitted);
+	
 	String Id = request.getParameter("idInput");
 	Id = "'" + Id + "'";
 	String Password = request.getParameter("passwordInput");
@@ -85,7 +89,9 @@
 	//예외 처리
 	try{
 		pstmt.executeUpdate();
+		pstmt.executeQuery(commit);
 	}	catch(Exception e){
+		pstmt.executeQuery(commit);
 		//회원가입 페이지러 돌아감
        out.println("<script>");
        out.println("alert('basket making Failed')" );	//실패했다고 출력
