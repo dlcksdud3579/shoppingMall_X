@@ -13,7 +13,7 @@
 <body>	
 <%
 	Connection conn = DBConn.getMySqlConnection(); 
-	out.print("db conn : " + conn);
+	//out.print("db conn : " + conn);
 		
 	Statement stmt = conn.createStatement();
 	
@@ -40,17 +40,18 @@
 		String itemCode =  rs.getString(1);
 	%>
 	   <form action = "AddStock.jsp" method = "POST">
-		<td><input type="text" <%="name=addStock_" + rs.getString(1) %>><br></td>"
-		<td> <input type="submit" value="Add" name = "AddStockButton" ></td>" 
+		<td><input type="text" <%="name=addStock_" + rs.getString(1) %>><br></td>
+		<td> <input type="submit" value="Add" name = "AddStockButton" ></td>
     </form>		
 		<%
-		out.println("</tr>");
+		
+		//out.println("</tr>");
 		count++;
 		 
 	}
-	%>
-	out.println("</table>");
 	
+	out.println("</table>");
+	%>
 
 	
 %>

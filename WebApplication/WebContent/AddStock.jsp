@@ -17,12 +17,17 @@
 		
 	Statement stmt = conn.createStatement();	
 	ResultSet rs = null;
-	String useDatabase = "USE ShoppingMallDB";	
+	String useDatabase = "USE ShoppingMallDB";
 	stmt = conn.prepareStatement(useDatabase);	
 	stmt.executeQuery(useDatabase);
 	
+	String readCommitted = "SET TRANSACTION ISOLATION LEVEL READ COMMITTED;";
+	String commit = "COMMIT";
+	stmt.executeQuery(readCommitted);
+	
 	String selectAllNames = "SELECT ItemCode FROM Item;";
 	rs = stmt.executeQuery(selectAllNames);
+	
 	
 	String inputSource = "";
 	String itemCode = null;
@@ -34,18 +39,24 @@
 			break;		
 		}
 	}
+	stmt.executeQuery(commit);
 	
 	if(itemCode == null)
 	{
 		out.println("<script>");
 		out.println("alert('Please, input amount you want to add')");	//경고 메시지 출력
 		out.println("location='AddStockPage.jsp'");	
-		out.println("</script>");	  
+		out.println("</script>");
 	}
 	
 	
 	String updateQuery = "UPDATE Item SET Stock = Stock + " +request.getParameter(inputSource) + " WHERE ItemCode = \"" + itemCode + "\"";
 	out.println(updateQuery);
-	stmt.executeUpdate(updateQuery);	
+	stmt.executeUpdate(updateQuery);
+	
+    out.println("<script>");
+    out.println("alert('Add Stock Successful!')" );
+    out.println("location='AddStockPage.jsp'");	//재고 추가 페이지로 돌아감
+    out.println("</script>");   
 %>
 </html>
