@@ -93,10 +93,10 @@
        out.println("</script>");       
 		return;
 	}
-	
+	session.setAttribute("userId",Id);
 		out.println("<script>");
 	   out.println("alert('Sign up Success')");	//성공했다고 출력
-	   out.println("location='loginPage.html'");	//로그인 페이지로 돌아감
+	   out.println("location='recommend.jsp'");	//로그인 페이지로 돌아감
 	   out.println("</script>");	       
 
 	
