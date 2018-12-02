@@ -32,10 +32,12 @@
 		String qr = "";
 		int itemCount=0;
 		pstmt = conn.prepareStatement("select ShoppingBasketId from ShoppingBasket where CustomerId=\""+userId+"\"");
+		out.println("select ShoppingBasketId from ShoppingBasket where CustomerId=\""+userId+"\"");
 		rs = pstmt.executeQuery();
 		
 		rs.next();
 		baseketId = (String)rs.getString("ShoppingBasketId");
+		out.println("basketId : " + baseketId);
 		
 		itemCount  = Integer.parseInt(request.getParameter("count"));
 		

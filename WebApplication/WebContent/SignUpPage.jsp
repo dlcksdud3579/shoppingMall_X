@@ -99,6 +99,7 @@
        out.println("</script>");       
 		return;
 	}
+	Id = Id.substring(1,Id.length() - 1);
 	session.setAttribute("userId",Id);
 		out.println("<script>");
 	   out.println("alert('Sign up Success')");	//성공했다고 출력
