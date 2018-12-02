@@ -16,7 +16,7 @@
 
 	PreparedStatement pstmt = null;
 	Connection conn = DBConn.getMySqlConnection(); 
-	out.print("db conn : " + conn);
+	//out.print("db conn : " + conn);
 		
 	Statement stmt = conn.createStatement();
 	
@@ -25,12 +25,15 @@
 	String useDatabase = "USE ShoppingMallDB";
 	stmt = conn.prepareStatement(useDatabase);
 	stmt.executeQuery(useDatabase);
+	
+	 //"select ItemName,Specification, ItemCount ,PurchasedPrice from Item,ItemOrder,OrderContains where ItemOrder.OrderId = IO-4E1Um06252Bz7FV25e8t and ItemOrder.OrderId=OrderContains.OrderId and OrderContains.ItemCode = Item.ItemCode";
 
 	String qr =  "select ItemName,Specification, ItemCount ,PurchasedPrice "
 			+ "from Item,ItemOrder,OrderContains "
 			+ "where ItemOrder.OrderId = ? and ItemOrder.OrderId=OrderContains.OrderId and OrderContains.ItemCode = Item.ItemCode";
 	
 	pstmt = conn.prepareStatement(qr);
+	
  	pstmt.setString(1,request.getParameter("OId"));
  	rs = pstmt.executeQuery();
  	
@@ -48,10 +51,11 @@
 	}
 	out.println("</table>");
 	
-	qr =  "select ShipperName, ShippingFee from ItemOrder,shipper where ItemOrder.OrderId = ? and ItemOrder.ShipperId = Shipper.ShipperId";
+	qr =  "select ShipperName, ShippingFee from ItemOrder,Shipper where ItemOrder.OrderId = ? and ItemOrder.ShipperId = Shipper.ShipperId";
 	
 	pstmt = conn.prepareStatement(qr);
  	pstmt.setString(1,request.getParameter("OId"));
+ 	System.out.println(pstmt.toString());
  	rs = pstmt.executeQuery();
  	
 	out.println("<table border=\"1\">");
