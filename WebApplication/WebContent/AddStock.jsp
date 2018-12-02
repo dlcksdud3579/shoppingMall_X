@@ -49,10 +49,12 @@
 		out.println("</script>");
 	}
 	
-	
+	String serializableCommitted = "SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;";
+	stmt.executeQuery(serializableCommitted);
 	String updateQuery = "UPDATE Item SET Stock = Stock + " +request.getParameter(inputSource) + " WHERE ItemCode = \"" + itemCode + "\"";
 	out.println(updateQuery);
 	stmt.executeUpdate(updateQuery);
+	stmt.executeQuery(commit);
 	
     out.println("<script>");
     out.println("alert('Add Stock Successful!')" );
