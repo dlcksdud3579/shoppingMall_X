@@ -22,6 +22,10 @@
 	String useDatabase = "USE ShoppingMallDB";	
 	stmt = conn.prepareStatement(useDatabase);	
 	stmt.executeQuery(useDatabase);
+	
+	String readCommitted = "SET TRANSACTION ISOLATION LEVEL READ COMMITTED;";
+	String commit = "COMMIT";
+	stmt.executeQuery(readCommitted);
 
  	rs = stmt.executeQuery("select * from Item");
 
@@ -49,6 +53,7 @@
 		count++;
 		 
 	}
+	stmt.executeQuery(commit);
 	
 	out.println("</table>");
 	%>
