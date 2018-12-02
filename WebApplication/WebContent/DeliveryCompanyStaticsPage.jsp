@@ -13,7 +13,7 @@
 <body>
 <%
 	Connection conn = DBConn.getMySqlConnection(); 
-	out.print("db conn : " + conn);
+	///out.print("db conn : " + conn);
 		
 	Statement stmt = conn.createStatement();
 	
