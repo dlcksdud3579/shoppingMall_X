@@ -67,7 +67,7 @@
 	rs = stmt.executeQuery("SELECT SUM(SumPrice) FROM ItemOrder WHERE OrderDate LIKE '"+year+"-"+month+"-" + day + "';");
 	rs.next();
 	System.out.println("benefit: " + rs.getInt(1));
-	out.println("<th>Monthly Benefit</th>");
+	out.println("<th>Daily Benefit</th>");
 	out.println("<tr>");
 	out.println("<td>" + rs.getInt(1) + "</td>");
 	out.println("</tr>");	
