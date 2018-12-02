@@ -67,13 +67,15 @@
 	pstmt = conn.prepareStatement(updateQuery);
 	System.out.println("query : " + updateQuery);
 	
-	pstmt.executeQuery(commit);
+	
 	
 	//예외 처리
 	try{
 		pstmt.executeUpdate();
+		pstmt.executeQuery(commit);
 	}	catch(Exception e){
-		//회원가입 페이지러 돌아감
+		//회원가입 페이지로 돌아감
+		pstmt.executeQuery(commit);
        out.println("<script>");
        out.println("alert('Edit  Failed')" );	//경고 메시지
        out.println("location='EditMembership.html'");	//정보수정 페이지로 돌아감
