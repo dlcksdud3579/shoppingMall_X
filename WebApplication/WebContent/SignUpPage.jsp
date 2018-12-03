@@ -28,9 +28,9 @@
 	pstmt = conn.prepareStatement(useDatabase);	
 	pstmt.executeQuery();
 	
-	String serializableCommitted = "SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;";
+	String readCommitted = "SET TRANSACTION ISOLATION LEVEL READ COMMITTED;";
 	String commit = "COMMIT";
-	pstmt.executeQuery(serializableCommitted);
+	pstmt.executeQuery(readCommitted);
 	
 	String Id = request.getParameter("idInput");
 	Id = "'" + Id + "'";
